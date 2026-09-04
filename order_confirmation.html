@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ORDER CONFIRMATION</title>
+</head>
+<body>
+    <h1>Are the order details correct?</h1>
+    <p>
+        <button id="YesButton">YES</button>
+    </p>
+    <p>
+        <button id="NoButton">NO</button>
+    </p>
+    <script>
+        const YesButton = document.getElementById('YesButton');
+        const NoButton = document.getElementById('NoButton');
+
+        YesButton.addEventListener('click', function() {
+            window.location.href = 'order_saved.html';
+        });
+
+        NoButton.addEventListener('click', function() {
+            window.location.href = 'add_orders.html';
+        });
+    </script>
+</body>
+</html>

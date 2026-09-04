@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ORDER SAVED</title>
+</head>
+<body>
+    <h1>Order Successfully Saved!</h1>
+    <p>
+        <button id="OkButton">OK</button>
+    </p>
+    <p>
+        <button id="AddAnotherOrderButton">ADD ANOTHER ORDER</button>
+    </p>
+    <script>
+        const OkButton = document.getElementById('OkButton');
+        const AddAnotherOrderButton = document.getElementById('AddAnotherOrderButton');
+
+
+        OkButton.addEventListener('click', function() {
+            window.location.href = 'index.html';
+        });
+
+
+        AddAnotherOrderButton.addEventListener('click', function() {
+            window.location.href = 'add_orders.html';
+        });
+    </script>
+</body>
+</html>

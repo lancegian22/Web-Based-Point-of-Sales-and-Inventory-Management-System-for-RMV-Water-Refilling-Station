@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Add Orders</title>
+</head>
+<body>
+    <button id="BackButton">BACK</button>
+    <h1>ADD ORDERS</h1>
+    <form>
+        <div>
+            <label for="customerName">CUSTOMER'S NAME:</label>
+            <input type="text" id="customerName" placeholder="PLEASE ENTER CUSTOMER'S NAME">
+        </div>
+        <br>
+        <div>
+            <label for="containerType">TYPE OF CONTAINER:</label>
+            <select id="containerType" onchange="updatePriceAndTotal()">
+                <option value="" disabled selected>CHOOSE THE TYPE OF CONTAINER</option>
+                <option value="25">Slim Gallon</option>
+                <option value="25">Round Gallon</option>
+                <option value="10">Bottled Water 1L</option>
+                <option value="6">Bottled Water 500ml</option>
+                <option value="5">Bottled Water 350ml</option>
+            </select>
+        </div>
+        <br>
+        <div>
+            <label for="price">PRICE:</label>
+            <input type="text" id="price" placeholder="0" disabled>
+        </div>
+        <br>
+        <div>
+            <label for="quantity">QUANTITY:</label>
+            <input type="number" id="quantity" min="1" placeholder="PLEASE ENTER THE QUANTITY" oninput="calculateTotal()">
+        </div>
+        <br>
+        <div>
+            <label for="total">TOTAL:</label>
+            <span>₱</span>
+            <input type="text" id="total" value="0" disabled>
+        </div>
+        <br>
+        <p>
+        <button id="ConfirmButton">CONFIRM</button>
+        </p>
+    </form>
+
+    <script>
+        const BackButton = document.getElementById('BackButton');
+        const ConfirmButton = document.getElementById('ConfirmButton');
+
+        BackButton.addEventListener('click', function() {
+            window.location.href = 'index.html';
+        });
+
+        ConfirmButton.addEventListener('click', function(event) {
+            event.preventDefault();
+            const customerName = document.getElementById('customerName').value;
+            const containerType = document.getElementById('containerType').value;
+            const price = document.getElementById('price').value;
+            const quantity = document.getElementById('quantity').value;
+            const total = document.getElementById('total').value;
+
+            localStorage.setItem('customerName', customerName);
+            localStorage.setItem('containerType', containerType);
+            localStorage.setItem('price', price);
+            localStorage.setItem('quantity', quantity);
+            localStorage.setItem('total', total);
+
+            window.location.href = 'order_confirmation.html';
+        });
+
+        function updatePriceAndTotal() {
+            const containerDropdown = document.getElementById('containerType');
+            const priceInput = document.getElementById('price');
+            const selectedPrice = containerDropdown.value;
+            
+            if (selectedPrice) {
+                priceInput.value = selectedPrice;
+            } else {
+                priceInput.value = "0";
+            }
+            calculateTotal();
+        }
+        function calculateTotal() {
+            const price = parseFloat(document.getElementById('price').value) || 0;
+            const quantity = parseInt(document.getElementById('quantity').value) || 0;
+            const totalInput = document.getElementById('total');
+            const total = price * quantity;
+            totalInput.value = total;
+        }
+    </script>
+</body>
+</html>
