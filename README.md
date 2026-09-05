@@ -4,9 +4,13 @@
 
 #Group Members: 
 Florendo, Ralph Steven S.
+
 Fontillas, Lance Gian L.
+
 Hondrade, Giann R.
+
 Trinidad, Joshua C.
+
 Vanguardia,Yuan Paolo M.
 
 #Project Description: This is a Web-Based frontend project that designed to manage transaction and stock management for the RMV Water Refilling Station.
