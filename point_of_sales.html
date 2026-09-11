@@ -3,19 +3,49 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>POINT OF SALES DASHBOARD</title>
+    <title>RMV Water Refilling Station - Point of Sales</title>
+    <link rel="stylesheet" href="../css/pos.css">
+    <link rel="preconnect" href="https://googleapis.com">
+    <link rel="preconnect" href="https://gstatic.com" crossorigin>
+    <link href="https://googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <h1>POINT OF SALES</h1>
-    <p>
-        <button id="AddOrdersButton">ADD ORDERS</button>
-    </p>
-    <p>
-        <button id="ViewSalesSummaryButton">VIEW SALES SUMMARY</button>
-    </p>
-    <p>
-        <button id="BackButton">BACK</button>
-    </p>
-    <script src="js/pos_script.js"></script>
+
+    <main class="dashboard-container">
+        
+        <header class="top-nav">
+            <div class="logo-wrapper">
+                <img src="../images/water_logo.png" alt="Logo" class="mini-logo">
+            </div>
+        </header>
+
+        <div class="content-wrapper">
+            
+            <h1 class="dashboard-title">POINT OF SALES</h1>
+
+            <div class="button-group">
+                
+                <a href="add_orders.html" class="btn btn-primary">
+                    <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="21" r="1"></circle><circle cx="20" cy="21" r="1"></circle><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path></svg>
+                    <span class="btn-text">ADD ORDERS</span>
+                </a>
+
+                <a href="view_sales_summary.html" class="btn btn-secondary">
+                    <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg>
+                    <span class="btn-text">VIEW SALES SUMMARY</span>
+                </a>
+
+            </div>
+
+            <div class="footer-action">
+                <a href="index.html" class="btn-back">
+                    <svg class="back-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
+                    <span>BACK</span>
+                </a>
+            </div>
+
+        </div>
+    </main>
+
 </body>
 </html>

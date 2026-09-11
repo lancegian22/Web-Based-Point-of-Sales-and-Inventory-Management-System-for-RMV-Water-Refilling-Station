@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RMV Water Refilling Station - Yearly Sales Summary</title>
+    <link rel="stylesheet" href="../css/yearly_sales_summary.css">
+    <link rel="preconnect" href="https://googleapis.com">
+    <link rel="preconnect" href="https://gstatic.com" crossorigin>
+    <link href="https://googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <main class="summary-container">
+        
+        <header class="top-nav">
+            <div class="nav-left">
+                <button id="BackButton" class="back-link">
+                    <svg class="nav-arrow-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg>
+                </button>
+                <img src="../images/water_logo.png" alt="Logo" class="mini-logo">
+            </div>
+            <button id="HomeButton" class="home-link">
+                <svg class="home-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
+            </button>
+        </header>
+
+        <div class="content-wrapper">
+            
+            <h1 class="dashboard-title">YEARLY SALES SUMMARY</h1>
+
+            <div class="grid-table">
+                
+                <div class="grid-header">
+                    <div class="header-pill header-product">Product</div>
+                    <div class="header-pill">Price</div>
+                    <div class="header-pill">Quantity</div>
+                    <div class="header-pill">Sales</div>
+                </div>
+
+                <div class="grid-row" data-price="25">
+                    <div class="product-label">SLIM GALLON:</div>
+                    <input type="text" class="field-price" value="25" disabled>
+                    <input type="number" class="field-qty" min="0" placeholder="0" oninput="calculateRowSales(this)">
+                    <input type="text" class="field-sales" value="0" disabled>
+                </div>
+
+                <div class="grid-row" data-price="25">
+                    <div class="product-label">ROUND GALLON:</div>
+                    <input type="text" class="field-price" value="25" disabled>
+                    <input type="number" class="field-qty" min="0" placeholder="0" oninput="calculateRowSales(this)">
+                    <input type="text" class="field-sales" value="0" disabled>
+                </div>
+
+                <div class="grid-row" data-price="10">
+                    <div class="product-label">BOTTLED WATER 1L:</div>
+                    <input type="text" class="field-price" value="10" disabled>
+                    <input type="number" class="field-qty" min="0" placeholder="0" oninput="calculateRowSales(this)">
+                    <input type="text" class="field-sales" value="0" disabled>
+                </div>
+
+                <div class="grid-row" data-price="6">
+                    <div class="product-label">BOTTLED WATER 500ML:</div>
+                    <input type="text" class="field-price" value="6" disabled>
+                    <input type="number" class="field-qty" min="0" placeholder="0" oninput="calculateRowSales(this)">
+                    <input type="text" class="field-sales" value="0" disabled>
+                </div>
+
+                <div class="grid-row" data-price="5">
+                    <div class="product-label">BOTTLED WATER 350ML:</div>
+                    <input type="text" class="field-price" value="5" disabled>
+                    <input type="number" class="field-qty" min="0" placeholder="0" oninput="calculateRowSales(this)">
+                    <input type="text" class="field-sales" value="0" disabled>
+                </div>
+
+                <div class="grid-total-row">
+                    <div class="total-label">TOTAL :</div>
+                    <div class="total-box-wrapper">
+                        <span class="currency-symbol">₱</span>
+                        <input type="text" id="grandTotal" value="0" disabled>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="form-actions">
+                <button id="OkButton" class="btn-ok">
+                    <span>OK</span>
+                    <svg class="ok-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                </button>
+            </div>
+
+        </div>
+    </main>
+
+    <script>
+        const BackButton = document.getElementById('BackButton');
+        const HomeButton = document.getElementById('HomeButton');
+        const OkButton = document.getElementById('OkButton');
+
+        BackButton.addEventListener('click', function() {
+            window.location.href = 'view_sales_summary.html';
+        });
+
+        HomeButton.addEventListener('click', function() {
+            window.location.href = 'index.html';
+        });
+
+        OkButton.addEventListener('click', function() {
+            window.location.href = 'index.html';
+        });
+
+        function calculateRowSales(inputElement) {
+            const row = inputElement.closest('.grid-row');
+            const price = parseFloat(row.getAttribute('data-price')) || 0;
+            const qty = parseInt(inputElement.value) || 0;
+            const salesField = row.querySelector('.field-sales');
+            
+            salesField.value = price * qty;
+            calculateGrandTotal();
+        }
+
+        function calculateGrandTotal() {
+            const salesFields = document.querySelectorAll('.field-sales');
+            let total = 0;
+            
+            salesFields.forEach(field => {
+                total += parseFloat(field.value) || 0;
+            });
+            
+            document.getElementById('grandTotal').value = total;
+        }
+    </script>
+</body>
+</html>

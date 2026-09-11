@@ -2,68 +2,107 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Add Orders</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RMV Water Refilling Station - Add Orders</title>
+    <link rel="stylesheet" href="../css/add_orders.css">
+    <link rel="preconnect" href="https://googleapis.com">
+    <link rel="preconnect" href="https://gstatic.com" crossorigin>
+    <link href="https://googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <button id="BackButton">BACK</button>
-    <h1>ADD ORDERS</h1>
-    <form>
-        <div>
-            <label for="customerName">CUSTOMER'S NAME:</label>
-            <input type="text" id="customerName" placeholder="PLEASE ENTER CUSTOMER'S NAME">
+
+    <main class="form-container">
+        
+        <header class="top-nav">
+            <div class="nav-left">
+                <button id="BackButton" class="back-link">
+                    <svg class="nav-arrow-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg>
+                </button>
+                <img src="../images/water_logo.png" alt="Logo" class="mini-logo">
+            </div>
+            <button id="HomeButton" class="home-link">
+        <svg class="home-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
+            </button>
+        </header>
+
+        <div class="content-wrapper">
+            
+            <form class="order-form">
+                
+                <div class="form-group">
+                    <label for="customerName">CUSTOMER'S NAME:</label>
+                    <input type="text" id="customerName" placeholder="PLEASE ENTER CUSTOMER'S NAME">
+                </div>
+
+                <div class="form-group">
+                    <label for="containerType">TYPE OF CONTAINER:</label>
+                    <div class="select-wrapper">
+                        <select id="containerType" onchange="updatePriceAndTotal()">
+                            <option value="" disabled selected>CHOOSE THE TYPE OF CONTAINER</option>
+                            <option value="25">Slim Gallon</option>
+                            <option value="25">Round Gallon</option>
+                            <option value="10">Bottled Water 1L</option>
+                            <option value="6">Bottled Water 500ml</option>
+                            <option value="5">Bottled Water 350ml</option>
+                        </select>
+                        <svg class="select-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="price">PRICE:</label>
+                    <input type="text" id="price" placeholder="0" disabled>
+                </div>
+
+                <div class="form-group">
+                    <label for="quantity">QUANTITY:</label>
+                    <input type="number" id="quantity" min="1" placeholder="PLEASE ENTER THE QUANTITY" oninput="calculateTotal()">
+                </div>
+
+                <div class="form-group">
+                    <label for="total">TOTAL:</label>
+                    <div class="total-wrapper">
+                        <span class="currency-symbol">₱</span>
+                        <input type="text" id="total" value="0" disabled>
+                    </div>
+                </div>
+
+                <div class="form-actions">
+                    <button id="ConfirmButton" type="submit" class="btn-confirm">
+                        <span>CONFIRM</span>
+                        <svg class="confirm-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+                    </button>
+                </div>
+
+            </form>
+
         </div>
-        <br>
-        <div>
-            <label for="containerType">TYPE OF CONTAINER:</label>
-            <select id="containerType" onchange="updatePriceAndTotal()">
-                <option value="" disabled selected>CHOOSE THE TYPE OF CONTAINER</option>
-                <option value="25">Slim Gallon</option>
-                <option value="25">Round Gallon</option>
-                <option value="10">Bottled Water 1L</option>
-                <option value="6">Bottled Water 500ml</option>
-                <option value="5">Bottled Water 350ml</option>
-            </select>
-        </div>
-        <br>
-        <div>
-            <label for="price">PRICE:</label>
-            <input type="text" id="price" placeholder="0" disabled>
-        </div>
-        <br>
-        <div>
-            <label for="quantity">QUANTITY:</label>
-            <input type="number" id="quantity" min="1" placeholder="PLEASE ENTER THE QUANTITY" oninput="calculateTotal()">
-        </div>
-        <br>
-        <div>
-            <label for="total">TOTAL:</label>
-            <span>₱</span>
-            <input type="text" id="total" value="0" disabled>
-        </div>
-        <br>
-        <p>
-        <button id="ConfirmButton">CONFIRM</button>
-        </p>
-    </form>
+    </main>
 
     <script>
+        const HomeButton = document.getElementById('HomeButton');
         const BackButton = document.getElementById('BackButton');
         const ConfirmButton = document.getElementById('ConfirmButton');
 
-        BackButton.addEventListener('click', function() {
+        HomeButton.addEventListener('click', function() {
             window.location.href = 'index.html';
+        });
+
+        BackButton.addEventListener('click', function() {
+            window.location.href = 'point_of_sales.html'; 
         });
 
         ConfirmButton.addEventListener('click', function(event) {
             event.preventDefault();
             const customerName = document.getElementById('customerName').value;
-            const containerType = document.getElementById('containerType').value;
+            const containerType = document.getElementById('containerType');
+            const selectedText = containerType.options[containerType.selectedIndex].text;
             const price = document.getElementById('price').value;
             const quantity = document.getElementById('quantity').value;
             const total = document.getElementById('total').value;
 
             localStorage.setItem('customerName', customerName);
-            localStorage.setItem('containerType', containerType);
+            localStorage.setItem('containerType', selectedText);
             localStorage.setItem('price', price);
             localStorage.setItem('quantity', quantity);
             localStorage.setItem('total', total);
@@ -83,6 +122,7 @@
             }
             calculateTotal();
         }
+
         function calculateTotal() {
             const price = parseFloat(document.getElementById('price').value) || 0;
             const quantity = parseInt(document.getElementById('quantity').value) || 0;

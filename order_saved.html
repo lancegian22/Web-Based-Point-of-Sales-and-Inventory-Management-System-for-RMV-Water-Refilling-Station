@@ -3,27 +3,54 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ORDER SAVED</title>
+    <title>RMV Water Refilling Station - Order Saved</title>
+    <link rel="stylesheet" href="../css/order_saved.css">
+    <link rel="preconnect" href="https://googleapis.com">
+    <link rel="preconnect" href="https://gstatic.com" crossorigin>
+    <link href="https://googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <h1>Order Successfully Saved!</h1>
-    <p>
-        <button id="OkButton">OK</button>
-    </p>
-    <p>
-        <button id="AddAnotherOrderButton">ADD ANOTHER ORDER</button>
-    </p>
+
+    <main class="success-container">
+        
+        <header class="top-nav">
+            <div class="nav-left">
+                <img src="../images/water_logo.png" alt="Logo" class="mini-logo">
+            </div>
+        </header>
+
+        <div class="content-wrapper">
+            
+            <div class="success-icon-container">
+                <svg class="checkmark-circle-svg" viewBox="0 0 100 100" fill="none">
+                    <circle cx="50" cy="50" r="44" stroke="#5cb85c" stroke-width="8"/>
+                    <path d="M30 52 L43 65 L70 35" stroke="#5cb85c" stroke-width="9" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+            </div>
+
+            <h1 class="success-title">Order Successfully Saved!</h1>
+
+            <div class="button-stack">
+                <button id="OkButton" class="btn-action btn-ok">OK</button>
+
+                <button id="AnotherOrderButton" class="btn-action btn-another">
+                    <svg class="plus-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+                    <span class="two-line-text">MAKE <br> ANOTHER ORDER</span>
+                </button>
+            </div>
+
+        </div>
+    </main>
+
     <script>
         const OkButton = document.getElementById('OkButton');
-        const AddAnotherOrderButton = document.getElementById('AddAnotherOrderButton');
-
+        const AnotherOrderButton = document.getElementById('AnotherOrderButton');
 
         OkButton.addEventListener('click', function() {
-            window.location.href = 'index.html';
+            window.location.href = 'point_of_sales.html';
         });
 
-
-        AddAnotherOrderButton.addEventListener('click', function() {
+        AnotherOrderButton.addEventListener('click', function() {
             window.location.href = 'add_orders.html';
         });
     </script>

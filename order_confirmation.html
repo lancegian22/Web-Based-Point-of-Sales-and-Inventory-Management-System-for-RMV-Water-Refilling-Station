@@ -3,26 +3,72 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ORDER CONFIRMATION</title>
+    <title>RMV Water Refilling Station - Confirm Order</title>
+    <link rel="stylesheet" href="../css/order_confirmation.css">
+    <link rel="preconnect" href="https://googleapis.com">
+    <link rel="preconnect" href="https://gstatic.com" crossorigin>
+    <link href="https://googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <h1>Are the order details correct?</h1>
-    <p>
-        <button id="YesButton">YES</button>
-    </p>
-    <p>
-        <button id="NoButton">NO</button>
-    </p>
+
+    <main class="confirm-container">
+        
+        <header class="top-nav">
+            <div class="nav-left">
+                <img src="../images/water_logo.png" alt="Logo" class="mini-logo">
+            </div>
+            <button id="HomeButton" class="home-link">
+                <svg class="home-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
+            </button>
+        </header>
+
+        <div class="content-wrapper">
+            
+            <div class="illustration-container">
+                <svg class="checklist-svg" viewBox="0 0 24 24" fill="none" stroke="#2490d1" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                    <polyline points="14 2 14 8 20 8"></polyline>
+                    <line x1="16" y1="13" x2="8" y2="13"></line>
+                    <line x1="16" y1="17" x2="8" y2="17"></line>
+                    <polyline points="10 9 9 9 8 9"></polyline>
+                </svg>
+                <div class="check-badge">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                </div>
+            </div>
+
+            <h1 class="confirm-title">Are the order details correct?</h1>
+
+            <div class="choice-actions">
+                <button id="YesButton" class="btn-action btn-yes">
+                    <span>YES</span>
+                    <svg class="action-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                </button>
+
+                <button id="NoButton" class="btn-action btn-no">
+                    <span>NO</span>
+                    <svg class="action-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+                </button>
+            </div>
+
+        </div>
+    </main>
+
     <script>
+        const HomeButton = document.getElementById('HomeButton');
         const YesButton = document.getElementById('YesButton');
         const NoButton = document.getElementById('NoButton');
 
-        YesButton.addEventListener('click', function() {
-            window.location.href = 'order_saved.html';
+        HomeButton.addEventListener('click', function() {
+            window.location.href = 'index.html';
         });
 
         NoButton.addEventListener('click', function() {
             window.location.href = 'add_orders.html';
+        });
+
+        YesButton.addEventListener('click', function() {
+            window.location.href = 'order_saved.html';
         });
     </script>
 </body>

@@ -3,25 +3,55 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>INVENTORY MANAGEMENT DASHBOARD</title>
+    <title>RMV Water Refilling Station - Inventory Management System</title>
+    <link rel="stylesheet" href="../css/inventory.css">
+    <link rel="preconnect" href="https://googleapis.com">
+    <link rel="preconnect" href="https://gstatic.com" crossorigin>
+    <link href="https://googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <p>
-        <button id="BackButton" class="back-btn-layout">BACK</button>
-    </p>
-    <h1>INVENTORY MANAGEMENT SYSTEM</h1>
-    <p>
-        <button id="ViewStocksButton">VIEW AVAILABLE STOCKS</button>
-    </p>
-    <p>
-        <button id="AddStocksButton">ADD STOCKS</button>
-    </p>
-    <p>
-        <button id="EditStocksButton">EDIT STOCKS</button>
-    </p>
-    <p>
-        <button id="DeleteStocksButton">DELETE STOCKS</button>
-    </p>
-    <script src="js/inventory_script.js"></script>
+
+    <main class="dashboard-container">
+        
+        <header class="top-nav">
+            <div class="nav-left">
+                <a href="index.html" class="back-link">
+                    <svg class="nav-arrow-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg>
+                </a>
+                <img src="../images/water_logo.png" alt="Logo" class="mini-logo">
+            </div>
+        </header>
+
+        <div class="content-wrapper">
+            
+            <h1 class="dashboard-title">INVENTORY MANAGEMENT SYSTEM</h1>
+
+            <div class="button-group">
+                
+                <a href="#" class="btn btn-primary">
+                    <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="16.5" y1="9.4" x2="7.5" y2="4.21"></line><polygon points="12 22.08 12 12 3 6.92 3 17.08 12 22.08"></polygon><polygon points="12 12 21 6.92 21 17.08 12 22.08"></polygon><polygon points="12 2 21 6.92 12 12 3 6.92 12 2"></polygon><line x1="12" y1="22.08" x2="12" y2="12"></line></svg>
+                    <span class="btn-text">VIEW AVAILABLE STOCKS</span>
+                </a>
+
+                <a href="#" class="btn btn-primary">
+                    <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="16"></line><line x1="8" y1="12" x2="16" y2="12"></line></svg>
+                    <span class="btn-text">ADD STOCKS</span>
+                </a>
+
+                <a href="#" class="btn btn-primary">
+                    <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"></path><path d="M18.5 2.5a2.121 2.121 0 1 1 3 3L12 15l-4 1 1-4Z"></path></svg>
+                    <span class="btn-text">EDIT STOCKS</span>
+                </a>
+
+                <a href="#" class="btn btn-primary">
+                    <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="3 6 5 6 21 6"></polyline><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></line><line x1="10" y1="11" x2="10" y2="17"></line><line x1="14" y1="11" x2="14" y2="17"></line></svg>
+                    <span class="btn-text">DELETE STOCKS</span>
+                </a>
+
+            </div>
+
+        </div>
+    </main>
+
 </body>
 </html>

@@ -3,19 +3,44 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>RMV Water Refilling Station</title>
+    <title>RMV Water Refilling Station - System Home</title>
+    <link rel="stylesheet" href="../css/index.css">
     <link rel="preconnect" href="https://googleapis.com">
     <link rel="preconnect" href="https://gstatic.com" crossorigin>
-    <link href="https://googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="css/index.css">
+    <link href="https://googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <img src="images/water.png" alt="RMV Logo">
-    <h1>Web-Based Point-of-Sales and Inventory <br>Management System for RMV Water Refilling Station</h1> 
-    <div class="button-container">
-        <button id="POSButton" class="menu-btn">POINT OF SALES</button>
-        <button id="InventoryButton" class="menu-btn">INVENTORY MANAGEMENT SYSTEM</button>
-    </div>
-    <script src="js/script.js"></script>
+
+    <main class="homescreen-container">
+        <div class="content-wrapper">
+            
+            <div class="logo-container">
+                <img src="../images/water_logo.png" alt="RMV Water Refilling Station Logo" class="main-logo">
+            </div>
+
+            <h1 class="main-title">
+                Web-Based Point-of-Sales and <br>
+                Inventory Management System for RMV Water Refilling Station
+            </h1>
+
+            <div class="button-group">
+                
+                <a href="point_of_sales.html" class="btn btn-primary">
+                    <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="21" r="1"></circle><circle cx="20" cy="21" r="1"></circle><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path></svg>
+                    <span class="btn-text">POINT OF SALES</span>
+                </a>
+
+                <a href="inventory_management_system.html" class="btn btn-secondary">
+                    <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="16.5" y1="9.4" x2="7.5" y2="4.21"></line><polygon points="12 22.08 12 12 3 6.92 3 17.08 12 22.08"></polygon><polygon points="12 12 21 6.92 21 17.08 12 22.08"></polygon><polygon points="12 2 21 6.92 12 12 3 6.92 12 2"></polygon><line x1="12" y1="22.08" x2="12" y2="12"></line></svg>
+                    <span class="btn-text btn-text-two-lines">
+                        INVENTORY <br> MANAGEMENT SYSTEM
+                    </span>
+                </a>
+
+            </div>
+
+        </div>
+    </main>
+
 </body>
 </html>

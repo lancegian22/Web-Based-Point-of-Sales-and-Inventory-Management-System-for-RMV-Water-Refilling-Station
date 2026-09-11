@@ -3,25 +3,98 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SALES SUMMARY DASHBOARD</title>
+    <title>RMV Water Refilling Station - Sales Summary</title>
+    <link rel="stylesheet" href="../css/view_sales_summary.css">
+    <link rel="preconnect" href="https://googleapis.com">
+    <link rel="preconnect" href="https://gstatic.com" crossorigin>
+    <link href="https://googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <p>
-    <button id="BackButton">BACK</button>
-    </p>
-    <h1>SALES SUMMARY</h1>
-    <p>
-        <button id="DailySalesSummaryButton">DAILY SALES SUMMARY</button>
-    </p>
-    <p>
-        <button id="WeeklySalesSummaryButton">WEEKLY SALES SUMMARY</button>
-    </p>
-    <p>
-    <button id="MonthlySalesSummaryButton">MONTHLY SALES SUMMARY</button>
-    </p>
-    <p>
-    <button id="YearlySalesSummaryButton">YEARLY SALES SUMMARY</button>
-    </p>  
-    <script src="js/view_sales_script.js"></script>
+
+    <main class="dashboard-container">
+        
+        <header class="top-nav">
+            <div class="nav-left">
+                <button id="BackButton" class="back-link">
+                    <svg class="nav-arrow-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg>
+                </button>
+                <img src="../images/water_logo.png" alt="Logo" class="mini-logo">
+            </div>
+            <button id="HomeButton" class="home-link">
+                <svg class="home-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
+            </button>
+        </header>
+
+        <div class="content-wrapper">
+            
+            <h1 class="dashboard-title">SALES SUMMARY</h1>
+
+            <div class="button-group">
+                
+                <button class="btn btn-summary" onclick="navigateTo('daily_sales')">
+                    <div class="icon-badge">
+                        <svg class="summary-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line><path d="M8 14h.01M12 14h.01M16 14h.01M8 18h.01M12 18h.01"></path></svg>
+                        <span class="badge-label">DAILY</span>
+                    </div>
+                    <div class="btn-text">
+                        <span class="main-heading">DAILY</span>
+                        <span class="main-heading">SALES SUMMARY</span>
+                    </div>
+                </button>
+
+                <button class="btn btn-summary" onclick="navigateTo('weekly_sales')">
+                    <div class="icon-badge">
+                        <svg class="summary-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line><path d="M12 14l2 2 4-4"></path></svg>
+                        <span class="badge-label">WEEKLY</span>
+                    </div>
+                    <div class="btn-text">
+                        <span class="main-heading">WEEKLY</span>
+                        <span class="main-heading">SALES SUMMARY</span>
+                    </div>
+                </button>
+
+                <button class="btn btn-summary" onclick="navigateTo('monthly_sales')">
+                    <div class="icon-badge">
+                        <svg class="summary-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></ratio><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line><path d="M9 16h6"></path></svg>
+                        <span class="badge-label">MONTHLY</span>
+                    </div>
+                    <div class="btn-text">
+                        <span class="main-heading">MONTHLY</span>
+                        <span class="main-heading">SALES SUMMARY</span>
+                    </div>
+                </button>
+
+                <button class="btn btn-summary" onclick="navigateTo('yearly_sales')">
+                    <div class="icon-badge">
+                        <svg class="summary-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 20V10M12 20V4M6 20v-6"></path></svg>
+                        <span class="badge-label">YEARLY</span>
+                    </div>
+                    <div class="btn-text">
+                        <span class="main-heading">YEARLY</span>
+                        <span class="main-heading">SALES SUMMARY</span>
+                    </div>
+                </button>
+
+            </div>
+
+        </div>
+    </main>
+
+    <script>
+        const BackButton = document.getElementById('BackButton');
+        const HomeButton = document.getElementById('HomeButton');
+
+        BackButton.addEventListener('click', function() {
+            window.location.href = 'point_of_sales.html'; 
+        });
+
+        HomeButton.addEventListener('click', function() {
+            window.location.href = 'index.html'; 
+        });
+
+        function navigateTo(reportType) {
+            window.location.href = `${reportType}_summary.html`;
+        }
+    </script>
 </body>
 </html>

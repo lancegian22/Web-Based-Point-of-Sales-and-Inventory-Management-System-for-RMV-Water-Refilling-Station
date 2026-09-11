@@ -10,8 +10,8 @@ body {
     overflow: hidden;
 }
 
-.homescreen-container {
-    width: 100vw; 
+.dashboard-container {
+    width: 100vw;
     height: 100vh;
     background-color: #e3f2fd;
     background-image: url('../images/water_background.jpg');
@@ -19,59 +19,87 @@ body {
     background-position: center;
     background-repeat: no-repeat;
     display: flex;
-    justify-content: center;
-    align-items: center;
-    position: relative;
-    
-}
-
-.content-wrapper {
-    display: flex;
     flex-direction: column;
+    position: relative;
+}
+
+.top-nav {
+    display: flex;
+    justify-content: space-between;
     align-items: center;
-    text-align: center;
-    width: 90%;
-    max-width: 600px;
-    z-index: 10;
+    padding: 30px 40px;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 20;
 }
 
-.logo-container {
-    margin-bottom: 20px;
+.nav-left {
+    display: flex;
+    align-items: center;
+    gap: 20px;
 }
 
-.main-logo {
-    width: 200px;
-    height: 200px;
+.back-link {
+    color: #0000ff;
+    transition: transform 0.2s ease;
+}
+
+.back-link:hover {
+    transform: scale(1.15);
+}
+
+.nav-arrow-icon {
+    width: 48px;
+    height: 48px;
+}
+
+.mini-logo {
+    width: 90px;
+    height: 90px;
     border-radius: 50%;
     object-fit: cover;
     display: block;
 }
 
-.main-title {
-    font-size: 1.75rem;
+.content-wrapper {
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    width: 95%;
+    max-width: 640px;
+    z-index: 10;
+    margin-top: 140px;
+}
+
+.dashboard-title {
+    font-size: 2.2rem;
     font-weight: 700;
     color: #212529;
-    line-height: 1.4;
+    letter-spacing: 0.5px;
     margin-bottom: 35px;
 }
 
 .button-group {
     display: flex;
     flex-direction: column;
-    gap: 20px;
+    gap: 18px;
     width: 100%;
-    max-width: 460px;
+    max-width: 500px;
 }
 
 .btn {
     display: grid;
-    grid-template-columns: 50px 1fr 50px;
+    grid-template-columns: 70px 1fr 70px;
     align-items: center;
     text-decoration: none;
-    padding: 14px 24px;
-    border-radius: 18px;
+    padding: 12px 24px;
+    border-radius: 14px;
     transition: all 0.2s ease-in-out;
-    height: 76px;
+    height: 68px;
 }
 
 .btn-icon {
@@ -84,7 +112,7 @@ body {
 .btn-text {
     grid-column: 2;
     font-weight: 700;
-    font-size: 1.5rem;
+    font-size: 1.35rem;
     letter-spacing: 0.5px;
     text-align: center;
 }
@@ -99,20 +127,4 @@ body {
     background-color: #0000cc;
     border-color: #0000cc;
     transform: translateY(-2px);
-}
-
-.btn-secondary {
-    background-color: #ffffff;
-    color: #0000ff;
-    border: 3px solid #0000ff;
-}
-
-.btn-secondary:hover {
-    background-color: #f0f4ff;
-    transform: translateY(-2px);
-}
-
-.btn-text-two-lines {
-    font-size: 1.05rem;
-    line-height: 1.2;
 }

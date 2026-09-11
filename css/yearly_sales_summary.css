@@ -1,0 +1,248 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    min-height: 100vh;
+    overflow: hidden;
+}
+
+.summary-container {
+    width: 100vw;
+    height: 100vh;
+    background-color: #e3f2fd;
+    background-image: url('../images/water_background.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+
+.top-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 30px 40px;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 20;
+}
+
+.nav-left {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.back-link {
+    background: none;
+    border: none;
+    color: #0000ff;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+    padding: 0;
+}
+
+.back-link:hover {
+    transform: scale(1.15);
+}
+
+.nav-arrow-icon {
+    width: 48px;
+    height: 48px;
+}
+
+.mini-logo {
+    width: 90px;
+    height: 90px;
+    border-radius: 50%;
+    object-fit: cover;
+    display: block;
+}
+
+.home-link {
+    background: none;
+    border: none;
+    color: #0000ff;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+    padding: 0;
+}
+
+.home-link:hover {
+    transform: scale(1.1);
+}
+
+.home-icon {
+    width: 52px;
+    height: 52px;
+}
+
+.content-wrapper {
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 95%;
+    max-width: 960px;
+    z-index: 10;
+    margin-top: 130px;
+}
+
+.dashboard-title {
+    font-size: 2.2rem;
+    font-weight: 700;
+    color: #212529;
+    letter-spacing: 0.5px;
+    margin-bottom: 35px;
+    text-transform: uppercase;
+}
+
+.grid-table {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    margin-bottom: 25px;
+}
+
+.grid-header {
+    display: grid;
+    grid-template-columns: 2.2fr 1fr 1fr 1fr;
+    gap: 20px;
+    align-items: center;
+}
+
+.header-pill {
+    background-color: #0000ff;
+    color: #ffffff;
+    font-weight: 700;
+    font-size: 1.25rem;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 20px;
+    padding: 0 10px;
+}
+
+.header-product {
+    justify-self: start;
+    width: 160px;
+}
+
+.grid-row {
+    display: grid;
+    grid-template-columns: 2.2fr 1fr 1fr 1fr;
+    gap: 20px;
+    align-items: center;
+}
+
+.product-label {
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: #1a1a1a;
+    letter-spacing: 0.5px;
+}
+
+input[type="text"],
+input[type="number"] {
+    width: 100%;
+    height: 48px;
+    padding: 5px 15px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.2rem;
+    color: #333;
+    text-align: center;
+    background-color: #ffffff;
+    border: 1.5px solid #666666;
+    border-radius: 14px;
+    outline: none;
+}
+
+input:disabled {
+    background-color: #ffffff;
+    color: #333;
+    border-color: #666666;
+    font-weight: 600;
+}
+
+.grid-total-row {
+    display: grid;
+    grid-template-columns: 2.2fr 1fr 1fr 1fr;
+    gap: 20px;
+    align-items: center;
+    margin-top: 15px;
+}
+
+.total-label {
+    grid-column: 1;
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: #1a1a1a;
+}
+
+.total-box-wrapper {
+    grid-column: 4;
+    position: relative;
+    width: 100%;
+}
+
+.total-box-wrapper input {
+    padding-left: 45px;
+    font-weight: 700;
+    text-align: center;
+}
+
+.currency-symbol {
+    position: absolute;
+    left: 18px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: #1a1a1a;
+    z-index: 5;
+}
+
+.form-actions {
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+}
+
+.btn-ok {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #008000;
+    color: #ffffff;
+    border: none;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 700;
+    font-size: 1.5rem;
+    letter-spacing: 1px;
+    width: 240px;
+    height: 52px;
+    border-radius: 26px;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+}
+
+.btn-ok:hover {
+    background-color: #006600;
+    transform: translateY(-2px);
+}
+
+.ok-icon {
+    width: 26px;
+    height: 26px;
+    margin-left: 12px;
+}
