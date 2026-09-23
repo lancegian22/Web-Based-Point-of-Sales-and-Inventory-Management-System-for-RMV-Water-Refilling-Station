@@ -53,3 +53,17 @@ function addStock(stockKey) {
         window.location.href = 'quantity_added.html';
     }
 }
+
+function loadCurrentInventoryAsPlaceholders() {
+    const currentStock = JSON.parse(localStorage.getItem('rmv_inventory'));
+    if (currentStock) {
+        Object.keys(currentStock).forEach(key => {
+            const inputField = document.querySelector(`input[data-stock="${key}"]`);
+            if (inputField) {
+                inputField.placeholder = currentStock[key];
+            }
+        });
+    }
+}
+
+document.addEventListener("DOMContentLoaded", loadCurrentInventoryAsPlaceholders);

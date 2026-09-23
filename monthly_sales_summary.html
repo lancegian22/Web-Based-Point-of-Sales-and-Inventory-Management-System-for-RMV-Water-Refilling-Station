@@ -92,44 +92,6 @@
 
         </div>
     </main>
-
-    <script>
-        const BackButton = document.getElementById('BackButton');
-        const HomeButton = document.getElementById('HomeButton');
-        const OkButton = document.getElementById('OkButton');
-
-        BackButton.addEventListener('click', function() {
-            window.location.href = 'view_sales_summary.html';
-        });
-
-        HomeButton.addEventListener('click', function() {
-            window.location.href = 'index.html';
-        });
-
-        OkButton.addEventListener('click', function() {
-            window.location.href = 'index.html';
-        });
-
-        function calculateRowSales(inputElement) {
-            const row = inputElement.closest('.grid-row');
-            const price = parseFloat(row.getAttribute('data-price')) || 0;
-            const qty = parseInt(inputElement.value) || 0;
-            const salesField = row.querySelector('.field-sales');
-            
-            salesField.value = price * qty;
-            calculateGrandTotal();
-        }
-
-        function calculateGrandTotal() {
-            const salesFields = document.querySelectorAll('.field-sales');
-            let total = 0;
-            
-            salesFields.forEach(field => {
-                total += parseFloat(field.value) || 0;
-            });
-            
-            document.getElementById('grandTotal').value = total;
-        }
-    </script>
+    <script src="../js/monthly_sales_summary.js"></script>
 </body>
 </html>

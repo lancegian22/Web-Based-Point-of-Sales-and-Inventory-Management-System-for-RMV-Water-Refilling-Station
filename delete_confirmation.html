@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RMV Water Refilling Station - Delete Confirmation</title>
+    <link rel="stylesheet" href="../css/delete_confirmation.css">
+    <link rel="preconnect" href="https://googleapis.com">
+    <link rel="preconnect" href="https://gstatic.com" crossorigin>
+    <link href="https://googleapis.com" rel="stylesheet">
+</head>
+<body>
+
+    <main class="success-container">
+        
+        <header class="top-nav">
+            <div class="nav-left">
+                <img src="../images/water_logo.png" alt="Logo" class="mini-logo">
+            </div>
+        </header>
+
+        <div class="content-wrapper">
+            
+            <div class="success-icon-container">
+                <img src="../images/delete_confirmation.png" alt="Delete Icon" class="delete-icon-img">
+            </div>
+
+            <h1 class="success-title">Are you sure you want to <br> remove this quantity from the item?</h1>
+
+            <div class="horizontal-button-row">
+                <div class="button-stack">
+                    <button id="YesButton" class="btn-action btn-yes">
+                        <span>YES</span>
+                        <svg class="action-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                    </button>
+
+                    <button id="NoButton" class="btn-action btn-no">
+                        <span>NO</span>
+                        <svg class="action-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+                    </button>
+                </div>
+            </div>
+
+        </div>
+    </main>
+        <script>
+        const YesButton = document.getElementById('YesButton');
+        const NoButton = document.getElementById('NoButton');
+
+        YesButton.addEventListener('click', function() {
+            const stockKey = sessionStorage.getItem('pending_delete_key');
+            const valueToRemove = parseInt(sessionStorage.getItem('pending_delete_value'));
+
+            if (stockKey && !isNaN(valueToRemove)) {
+                let currentStock = JSON.parse(localStorage.getItem('rmv_inventory'));
+                
+                if (currentStock && currentStock[stockKey] !== undefined) {
+                    currentStock[stockKey] = parseInt(currentStock[stockKey]) - valueToRemove;
+                    localStorage.setItem('rmv_inventory', JSON.stringify(currentStock));
+                }
+            }
+
+            sessionStorage.removeItem('pending_delete_key');
+            sessionStorage.removeItem('pending_delete_value');
+            
+            window.location.href = 'quantity_deleted.html';
+        });
+
+        NoButton.addEventListener('click', function() {
+            sessionStorage.removeItem('pending_delete_key');
+            sessionStorage.removeItem('pending_delete_value');
+            
+            window.location.href = 'delete_stocks.html';
+        });
+    </script>
+</body>
+</html>

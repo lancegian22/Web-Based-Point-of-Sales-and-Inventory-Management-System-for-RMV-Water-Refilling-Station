@@ -78,58 +78,6 @@
 
         </div>
     </main>
-
-    <script>
-        const HomeButton = document.getElementById('HomeButton');
-        const BackButton = document.getElementById('BackButton');
-        const ConfirmButton = document.getElementById('ConfirmButton');
-
-        HomeButton.addEventListener('click', function() {
-            window.location.href = 'index.html';
-        });
-
-        BackButton.addEventListener('click', function() {
-            window.location.href = 'point_of_sales.html'; 
-        });
-
-        ConfirmButton.addEventListener('click', function(event) {
-            event.preventDefault();
-            const customerName = document.getElementById('customerName').value;
-            const containerType = document.getElementById('containerType');
-            const selectedText = containerType.options[containerType.selectedIndex].text;
-            const price = document.getElementById('price').value;
-            const quantity = document.getElementById('quantity').value;
-            const total = document.getElementById('total').value;
-
-            localStorage.setItem('customerName', customerName);
-            localStorage.setItem('containerType', selectedText);
-            localStorage.setItem('price', price);
-            localStorage.setItem('quantity', quantity);
-            localStorage.setItem('total', total);
-
-            window.location.href = 'order_confirmation.html';
-        });
-
-        function updatePriceAndTotal() {
-            const containerDropdown = document.getElementById('containerType');
-            const priceInput = document.getElementById('price');
-            const selectedPrice = containerDropdown.value;
-            
-            if (selectedPrice) {
-                priceInput.value = selectedPrice;
-            } else {
-                priceInput.value = "0";
-            }
-            calculateTotal();
-        }
-
-        function calculateTotal() {
-            const price = parseFloat(document.getElementById('price').value) || 0;
-            const quantity = parseInt(document.getElementById('quantity').value) || 0;
-            const totalInput = document.getElementById('total');
-            const total = price * quantity;
-            totalInput.value = total;
-        }
-    </script>
+    <script src="../js/add_orders.js"></script>
 </body>
 </html>

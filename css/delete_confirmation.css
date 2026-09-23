@@ -1,0 +1,146 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    min-height: 100vh;
+    overflow: hidden;
+}
+
+.success-container {
+    width: 100vw;
+    height: 100vh;
+    background-color: #e3f2fd;
+    background-image: url('../images/water_background.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+
+.top-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 30px 40px;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 20;
+}
+
+.nav-left {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.mini-logo {
+    width: 90px;
+    height: 90px;
+    border-radius: 50%;
+    object-fit: contain;
+    display: block;
+}
+
+.content-wrapper {
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    z-index: 10;
+    text-align: center;
+    padding-top: 50px;      
+    padding-bottom: 140px;
+}
+
+.success-icon-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 30px;
+    background: none;
+    border: none;
+}
+
+.delete-icon-img {
+    width: 140px;
+    height: 140px;
+    object-fit: contain;
+    display: block;
+}
+
+.success-title {
+    font-size: 2.4rem;
+    font-weight: 700;
+    color: #212529;
+    letter-spacing: 0.5px;
+    margin-bottom: 50px;
+    line-height: 1.4;
+}
+
+.horizontal-button-row {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+.button-stack {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 48px;
+    width: auto;
+}
+
+.btn-action {
+    width: 190px;
+    height: 48px;
+    border: none;
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: #ffffff;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    border-radius: 24px;
+}
+
+.btn-yes {
+    background-color: #24cc30;
+}
+
+.btn-yes:hover {
+    background-color: #28a428;
+    transform: translateY(-2px);
+}
+
+.btn-no {
+    background-color: #e60000;
+}
+
+.btn-no:hover {
+    background-color: #cc0000;
+    transform: translateY(-2px);
+}
+
+.action-icon {
+    width: 18px;
+    height: 18px;
+    display: block;
+}

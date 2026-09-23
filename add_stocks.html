@@ -10,9 +10,8 @@
     <link href="https://googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
-
     <main class="stocks-container">
-        
+    
         <header class="top-nav">
             <div class="nav-left">
                 <button id="BackButton" class="back-link">
@@ -25,8 +24,8 @@
             </button>
         </header>
 
-        <div class="content-wrapper">
-            <h1 class="dashboard-title">ADD STOCKS</h1>
+        <div class="content-wrapper" style="position: relative; z-index: 30;">
+            <h1 class="dashboard-title">Add Stocks</h1>
             
             <form id="add-stocks-form" class="split-grid-layout" onsubmit="preventSubmit(event)">
                 <div class="grid-column">
@@ -34,7 +33,9 @@
                         <label>SLIM GALLON:</label>
                         <div class="input-action-wrapper">
                             <input type="number" min="0" placeholder="0" data-stock="slim-gallon" onkeydown="checkEnter(event, 'slim-gallon')">
-                            <button type="button" class="btn-indicator" onclick="addStock('slim-gallon')">+</button>
+                            <button type="button" class="delete-action" onclick="addStock('slim-gallon')">
+                                <img src="../images/add_icon.png" alt="Add" class="add-icon-img">
+                            </button>
                         </div>
                     </div>
 
@@ -42,7 +43,9 @@
                         <label>ROUND GALLON:</label>
                         <div class="input-action-wrapper">
                             <input type="number" min="0" placeholder="0" data-stock="round-gallon" onkeydown="checkEnter(event, 'round-gallon')">
-                            <button type="button" class="btn-indicator" onclick="addStock('round-gallon')">+</button>
+                            <button type="button" class="delete-action" onclick="addStock('round-gallon')">
+                                <img src="../images/add_icon.png" alt="Add" class="add-icon-img">
+                            </button>
                         </div>
                     </div>
 
@@ -50,7 +53,9 @@
                         <label>BOTTLED WATER 350ML:</label>
                         <div class="input-action-wrapper">
                             <input type="number" min="0" placeholder="0" data-stock="bottled-350ml" onkeydown="checkEnter(event, 'bottled-350ml')">
-                            <button type="button" class="btn-indicator" onclick="addStock('bottled-350ml')">+</button>
+                            <button type="button" class="delete-action" onclick="addStock('bottled-350ml')">
+                                <img src="../images/add_icon.png" alt="Add" class="edit-icon-img">
+                            </button>
                         </div>
                     </div>
 
@@ -58,7 +63,9 @@
                         <label>BOTTLED WATER 500ML:</label>
                         <div class="input-action-wrapper">
                             <input type="number" min="0" placeholder="0" data-stock="bottled-500ml" onkeydown="checkEnter(event, 'bottled-500ml')">
-                            <button type="button" class="btn-indicator" onclick="addStock('bottled-500ml')">+</button>
+                            <button type="button" class="delete-action" onclick="addStock('bottled-500ml')">
+                                <img src="../images/add_icon.png" alt="Add" class="edit-icon-img">
+                            </button>
                         </div>
                     </div>
 
@@ -66,7 +73,9 @@
                         <label>BOTTLED WATER 1L:</label>
                         <div class="input-action-wrapper">
                             <input type="number" min="0" placeholder="0" data-stock="bottled-1l" onkeydown="checkEnter(event, 'bottled-1l')">
-                            <button type="button" class="btn-indicator" onclick="addStock('bottled-1l')">+</button>
+                            <button type="button" class="delete-action" onclick="addStock('bottled-1l')">
+                                <img src="../images/add_icon.png" alt="Add" class="edit-icon-img">
+                            </button>
                         </div>
                     </div>
 
@@ -74,7 +83,9 @@
                         <label>SLIM GALLON SMALL CAP:</label>
                         <div class="input-action-wrapper">
                             <input type="number" min="0" placeholder="0" data-stock="slim-small-cap" onkeydown="checkEnter(event, 'slim-small-cap')">
-                            <button type="button" class="btn-indicator" onclick="addStock('slim-small-cap')">+</button>
+                            <button type="button" class="delete-action" onclick="addStock('slim-small-cap')">
+                                <img src="../images/add_icon.png" alt="Add" class="edit-icon-img">
+                            </button>
                         </div>
                     </div>
 
@@ -82,7 +93,9 @@
                         <label>SLIM GALLON BIG CAP:</label>
                         <div class="input-action-wrapper">
                             <input type="number" min="0" placeholder="0" data-stock="slim-big-cap" onkeydown="checkEnter(event, 'slim-big-cap')">
-                            <button type="button" class="btn-indicator" onclick="addStock('slim-big-cap')">+</button>
+                            <button type="button" class="delete-action" onclick="addStock('slim-big-cap')">
+                                <img src="../images/add_icon.png" alt="Add" class="edit-icon-img">
+                            </button>
                         </div>
                     </div>
 
@@ -90,7 +103,9 @@
                         <label>ROUND GALLON CAP:</label>
                         <div class="input-action-wrapper">
                             <input type="number" min="0" placeholder="0" data-stock="round-cap" onkeydown="checkEnter(event, 'round-cap')">
-                            <button type="button" class="btn-indicator" onclick="addStock('round-cap')">+</button>
+                            <button type="button" class="delete-action" onclick="addStock('round-cap')">
+                                <img src="../images/add_icon.png" alt="Add" class="edit-icon-img">
+                            </button>
                         </div>
                     </div>
 
@@ -98,7 +113,9 @@
                         <label>BOTTLED WATER 350ML CAP:</label>
                         <div class="input-action-wrapper">
                             <input type="number" min="0" placeholder="0" data-stock="bottled-350ml-cap" onkeydown="checkEnter(event, 'bottled-350ml-cap')">
-                            <button type="button" class="btn-indicator" onclick="addStock('bottled-350ml-cap')">+</button>
+                            <button type="button" class="delete-action" onclick="addStock('bottled-350ml-cap')">
+                                <img src="../images/add_icon.png" alt="Add" class="edit-icon-img">
+                            </button>
                         </div>
                     </div>
 
@@ -106,7 +123,9 @@
                         <label>BOTTLED WATER 500ML CAP:</label>
                         <div class="input-action-wrapper">
                             <input type="number" min="0" placeholder="0" data-stock="bottled-500ml-cap" onkeydown="checkEnter(event, 'bottled-500ml-cap')">
-                            <button type="button" class="btn-indicator" onclick="addStock('bottled-500ml-cap')">+</button>
+                            <button type="button" class="delete-action" onclick="addStock('bottled-500ml-cap')">
+                                <img src="../images/add_icon.png" alt="Add" class="edit-icon-img">
+                            </button>
                         </div>
                     </div>
 
@@ -114,7 +133,9 @@
                         <label>BOTTLED WATER 1L CAP:</label>
                         <div class="input-action-wrapper">
                             <input type="number" min="0" placeholder="0" data-stock="bottled-1l-cap" onkeydown="checkEnter(event, 'bottled-1l-cap')">
-                            <button type="button" class="btn-indicator" onclick="addStock('bottled-1l-cap')">+</button>
+                            <button type="button" class="delete-action" onclick="addStock('bottled-1l-cap')">
+                                <img src="../images/add_icon.png" alt="Add" class="edit-icon-img">
+                            </button>
                         </div>
                     </div>
                 </div>
@@ -124,7 +145,9 @@
                         <label>SEAL:</label>
                         <div class="input-action-wrapper">
                             <input type="number" min="0" placeholder="0" data-stock="seal" onkeydown="checkEnter(event, 'seal')">
-                            <button type="button" class="btn-indicator" onclick="addStock('seal')">+</button>
+                            <button type="button" class="delete-action" onclick="addStock('seal')">
+                                <img src="../images/add_icon.png" alt="Add" class="edit-icon-img">
+                            </button>
                         </div>
                     </div>
 
@@ -132,7 +155,9 @@
                         <label>STICKER:</label>
                         <div class="input-action-wrapper">
                             <input type="number" min="0" placeholder="0" data-stock="sticker" onkeydown="checkEnter(event, 'sticker')">
-                            <button type="button" class="btn-indicator" onclick="addStock('sticker')">+</button>
+                            <button type="button" class="delete-action" onclick="addStock('sticker')">
+                                <img src="../images/add_icon.png" alt="Add" class="edit-icon-img">
+                            </button>
                         </div>
                     </div>
 
@@ -140,7 +165,9 @@
                         <label>GALLON PLASTIC:</label>
                         <div class="input-action-wrapper">
                             <input type="number" min="0" placeholder="0" data-stock="gallon-plastic" onkeydown="checkEnter(event, 'gallon-plastic')">
-                            <button type="button" class="btn-indicator" onclick="addStock('gallon-plastic')">+</button>
+                            <button type="button" class="delete-action" onclick="addStock('gallon-plastic')">
+                                <img src="../images/add_icon.png" alt="Add" class="edit-icon-img">
+                            </button>
                         </div>
                     </div>
                 </div>
@@ -151,19 +178,13 @@
     <script>
         const BackButton = document.getElementById('BackButton');
         const HomeButton = document.getElementById('HomeButton');
-
-
         BackButton.addEventListener('click', function() {
             window.location.href = 'inventory_management_system.html';
         });
-
-
         HomeButton.addEventListener('click', function() {
             window.location.href = 'index.html';
         });
     </script>
-</body>
-</html>
     <script src="../js/add_stocks.js"></script>
 </body>
 </html>

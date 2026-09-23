@@ -1,0 +1,118 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    min-height: 100vh;
+    overflow: hidden;
+}
+
+.success-container {
+    width: 100vw;
+    height: 100vh;
+    background-color: #e3f2fd;
+    background-image: url('../images/water_background.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+
+.top-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 30px 40px;
+    width: 100%;
+    position: relative;
+    z-index: 20;
+}
+
+.nav-left {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.mini-logo {
+    width: 90px;
+    height: 90px;
+    border-radius: 50%;
+    object-fit: contain;
+    display: block;
+}
+
+.content-wrapper {
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    z-index: 10;
+    text-align: center;
+    padding-top: 20px;      
+    padding-bottom: 50px;    
+}
+
+.success-icon-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 40px;
+    background: none;
+    border: none;
+}
+
+.delete-success-img {
+    width: 150px;
+    height: 150px;
+    object-fit: contain;
+    display: block;
+}
+
+.success-title {
+    font-size: 2.4rem;
+    font-weight: 700;
+    color: #212529;
+    letter-spacing: 0.5px;
+    margin-bottom: 50px;
+    line-height: 1.4;
+}
+
+.horizontal-button-row {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+.btn-action {
+    width: 190px;
+    height: 48px;
+    border: none;
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: #ffffff;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 24px;
+}
+
+.btn-ok {
+    background-color: #008000;
+}
+
+.btn-ok:hover {
+    background-color: #006600;
+    transform: translateY(-2px);
+}
