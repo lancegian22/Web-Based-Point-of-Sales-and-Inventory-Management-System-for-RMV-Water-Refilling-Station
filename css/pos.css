@@ -7,12 +7,12 @@
 body {
     font-family: 'Poppins', sans-serif;
     min-height: 100vh;
-    overflow: hidden;
+    overflow: auto;
 }
 
 .dashboard-container {
     width: 100vw;
-    height: 100vh;
+    min-height: 100vh;
     background-color: #e3f2fd;
     background-image: url('../images/water_background.jpg');
     background-size: cover;
@@ -125,6 +125,7 @@ body {
     width: 100%;
     display: flex;
     justify-content: center;
+    padding-bottom: 30px;
 }
 
 .btn-back {
@@ -152,4 +153,59 @@ body {
     width: 28px;
     height: 28px;
     margin-right: 15px;
+}
+
+@media (max-width: 480px) {
+    .top-nav {
+        position: relative; 
+        padding: 20px 20px 0px 20px;
+    }
+
+    .mini-logo {
+        width: 65px; 
+        height: 65px;
+    }
+
+    .content-wrapper {
+        margin-top: 20px; 
+        width: 92%;
+    }
+
+    .dashboard-title {
+        font-size: 1.8rem; 
+        margin-bottom: 25px;
+        letter-spacing: 0.5px;
+    }
+
+    .button-group {
+        gap: 15px; 
+        margin-bottom: 30px;
+    }
+
+    .btn {
+        height: 64px; 
+        padding: 10px 16px;
+        grid-template-columns: 45px 1fr 45px;
+    }
+
+    .btn-text {
+        font-size: 1.15rem; 
+    }
+
+    .btn-icon {
+        width: 26px;
+        height: 26px;
+    }
+
+    .btn-back {
+        width: 85%; 
+        height: 56px;
+        font-size: 1.3rem;
+    }
+    
+    .back-icon {
+        width: 22px;
+        height: 22px;
+        margin-right: 10px;
+    }
 }

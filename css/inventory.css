@@ -7,12 +7,12 @@
 body {
     font-family: 'Poppins', sans-serif;
     min-height: 100vh;
-    overflow: hidden;
+    overflow: auto;
 }
 
 .dashboard-container {
     width: 100vw;
-    height: 100vh;
+    min-height: 100vh;
     background-color: #e3f2fd;
     background-image: url('../images/water_background.jpg');
     background-size: cover;
@@ -89,6 +89,7 @@ body {
     gap: 18px;
     width: 100%;
     max-width: 500px;
+    padding-bottom: 30px;
 }
 
 .btn {
@@ -127,4 +128,50 @@ body {
     background-color: #0000cc;
     border-color: #0000cc;
     transform: translateY(-2px);
+}
+
+@media (max-width: 480px) {
+    .top-nav {
+        position: relative; 
+        padding: 20px 20px 0px 20px;
+    }
+
+    .nav-left {
+        gap: 10px;
+    }
+
+    .nav-arrow-icon {
+        width: 36px; 
+        height: 36px;
+    }
+
+    .mini-logo {
+        width: 65px; 
+        height: 65px;
+    }
+
+    .content-wrapper {
+        margin-top: 25px; 
+        width: 92%;
+    }
+
+    .dashboard-title {
+        font-size: 1.6rem; 
+        margin-bottom: 25px;
+    }
+
+    .btn {
+        height: 60px; 
+        padding: 8px 16px;
+        grid-template-columns: 45px 1fr 45px; 
+    }
+
+    .btn-text {
+        font-size: 1.1rem; 
+    }
+
+    .btn-icon {
+        width: 24px; 
+        height: 24px;
+    }
 }

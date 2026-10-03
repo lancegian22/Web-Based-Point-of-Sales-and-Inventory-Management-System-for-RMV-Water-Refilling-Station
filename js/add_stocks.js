@@ -19,18 +19,6 @@ if (!localStorage.getItem('rmv_inventory')) {
     localStorage.setItem('rmv_inventory', JSON.stringify(zeroInventoryBaseline));
 }
 
-function preventSubmit(e) {
-    e.preventDefault();
-}
-
-function handleBack() {
-    window.history.back();
-}
-
-function handleHome() {
-    window.location.href = 'inventory_management_system.html';
-}
-
 function checkEnter(event, stockKey) {
     if (event.key === 'Enter') {
         event.preventDefault();
@@ -43,15 +31,12 @@ function addStock(stockKey) {
     if (!inputField || !inputField.value || parseInt(inputField.value) <= 0) return;
 
     const valueToAdd = parseInt(inputField.value);
-    let currentStock = JSON.parse(localStorage.getItem('rmv_inventory')) || zeroInventoryBaseline;
 
-    if (currentStock[stockKey] !== undefined) {
-        currentStock[stockKey] = (parseInt(currentStock[stockKey]) || 0) + valueToAdd;
-        localStorage.setItem('rmv_inventory', JSON.stringify(currentStock));
-        
-        inputField.value = '';
-        window.location.href = 'quantity_added.html';
-    }
+    sessionStorage.setItem('pending_add_key', stockKey);
+    sessionStorage.setItem('pending_add_value', valueToAdd);
+    
+    inputField.value = '';
+    window.location.href = 'add_confirmation.html';
 }
 
 function loadCurrentInventoryAsPlaceholders() {

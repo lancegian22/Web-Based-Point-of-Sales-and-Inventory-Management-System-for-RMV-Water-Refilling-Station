@@ -7,12 +7,12 @@
 body {
     font-family: 'Poppins', sans-serif;
     min-height: 100vh;
-    overflow: hidden;
+    overflow: auto;
 }
 
 .summary-container {
     width: 100vw;
-    height: 100vh;
+    min-height: 100vh;
     background-color: #e3f2fd;
     background-image: url('../images/water_background.jpg');
     background-size: cover;

@@ -23,14 +23,6 @@ function preventSubmit(e) {
     e.preventDefault();
 }
 
-function handleBack() {
-    window.history.back();
-}
-
-function handleHome() {
-    window.location.href = 'inventory_management_system.html';
-}
-
 function checkEnter(event, stockKey) {
     if (event.key === 'Enter') {
         event.preventDefault();
@@ -40,18 +32,15 @@ function checkEnter(event, stockKey) {
 
 function editStock(stockKey) {
     const inputField = document.querySelector(`input[data-stock="${stockKey}"]`);
-    if (!inputField || inputField.value === "" || parseInt(inputField.value) < 0) return;
+    if (!inputField || inputField.value.trim() === "" || parseInt(inputField.value) < 0) return;
 
-    const newStockValue = parseInt(inputField.value);
-    let currentStock = JSON.parse(localStorage.getItem('rmv_inventory')) || zeroInventoryBaseline;
+    const newValue = parseInt(inputField.value);
 
-    if (currentStock[stockKey] !== undefined) {
-        currentStock[stockKey] = newStockValue;
-        localStorage.setItem('rmv_inventory', JSON.stringify(currentStock));
-        
-        inputField.value = '';
-        window.location.href = 'quantity_edited.html';
-    }
+    sessionStorage.setItem('pending_edit_key', stockKey);
+    sessionStorage.setItem('pending_edit_value', newValue);
+    
+    inputField.value = '';
+    window.location.href = 'edit_confirmation.html';
 }
 
 function loadCurrentInventoryAsPlaceholders() {

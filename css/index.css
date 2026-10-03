@@ -7,12 +7,12 @@
 body {
     font-family: 'Poppins', sans-serif;
     min-height: 100vh;
-    overflow: hidden;
+    overflow: auto;
 }
 
 .homescreen-container {
     width: 100vw; 
-    height: 100vh;
+    min-height: 100vh;
     background-color: #e3f2fd;
     background-image: url('../images/water_background.jpg');
     background-size: cover;
@@ -22,7 +22,7 @@ body {
     justify-content: center;
     align-items: center;
     position: relative;
-    
+    padding: 20px 0;
 }
 
 .content-wrapper {
@@ -115,4 +115,30 @@ body {
 .btn-text-two-lines {
     font-size: 1.05rem;
     line-height: 1.2;
+}
+@media (max-width: 480px) {
+    .main-logo {
+        width: 130px; 
+        height: 130px;
+    }
+
+    .main-title {
+        font-size: 1.35rem; 
+        margin-bottom: 25px;
+    }
+
+    .btn {
+        height: 64px; 
+        padding: 10px 16px;
+        grid-template-columns: 40px 1fr 40px; 
+    }
+
+    .btn-text {
+        font-size: 1.15rem; 
+    }
+    
+    .btn-icon {
+        width: 26px; 
+        height: 26px;
+    }
 }

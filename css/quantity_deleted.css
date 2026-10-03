@@ -7,12 +7,12 @@
 body {
     font-family: 'Poppins', sans-serif;
     min-height: 100vh;
-    overflow: hidden;
+    overflow: auto;
 }
 
 .success-container {
     width: 100vw;
-    height: 100vh;
+    min-height: 100vh;
     background-color: #e3f2fd;
     background-image: url('../images/water_background.jpg');
     background-size: cover;
@@ -115,4 +115,49 @@ body {
 .btn-ok:hover {
     background-color: #006600;
     transform: translateY(-2px);
+}
+
+@media (max-width: 480px) {
+    .top-nav {
+        padding: 20px 15px 0px 15px;
+    }
+
+    .nav-left {
+        gap: 10px;
+    }
+
+    .mini-logo {
+        width: 65px;
+        height: 65px;
+    }
+
+    .content-wrapper {
+        padding-top: 15px;
+        width: 90%;
+    }
+
+    .success-icon-container {
+        margin-bottom: 25px;
+    }
+
+    .delete-success-img {
+        width: 110px;
+        height: 110px;
+    }
+
+    .success-title {
+        font-size: 1.5rem;
+        margin-bottom: 35px;
+    }
+
+    .btn-action {
+        width: 80%;
+        max-width: 280px;
+        height: 46px;
+        font-size: 1.05rem;
+    }
+    
+    .content-wrapper {
+        padding-bottom: 40px;
+    }
 }

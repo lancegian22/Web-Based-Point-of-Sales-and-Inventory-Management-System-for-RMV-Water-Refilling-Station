@@ -7,12 +7,12 @@
 body {
     font-family: 'Poppins', sans-serif;
     min-height: 100vh;
-    overflow: hidden;
+    overflow: auto;
 }
 
 .stocks-container {
     width: 100vw;
-    height: 100vh;
+    min-height: 100vh;
     background-color: #e3f2fd;
     background-image: url('../images/water_background.jpg');
     background-size: cover;
@@ -115,4 +115,59 @@ body {
 .confirm-ok-btn:hover {
     background-color: #006400;
     transform: scale(1.05);
+}
+
+@media (max-width: 480px) {
+    .top-nav {
+        position: relative;
+        padding: 20px 15px 0px 15px;
+    }
+
+    .nav-left {
+        gap: 10px;
+    }
+
+    .mini-logo {
+        width: 65px;
+        height: 65px;
+    }
+
+    .dashboard-title {
+        font-size: 1.4rem;
+    }
+
+    .content-wrapper {
+        margin-top: 15px;
+        width: 90%;
+    }
+
+    .center-screen-adjustment {
+        margin-top: 25px;
+        margin-bottom: 25px;
+    }
+
+    .status-icon-wrapper {
+        margin-bottom: 25px;
+    }
+
+    .success-box-image {
+        width: 120px;
+        height: 120px;
+    }
+
+    .success-message-text {
+        font-size: 1.5rem;
+        margin-bottom: 30px;
+    }
+
+    .confirm-ok-btn {
+        width: 80%;
+        max-width: 280px;
+        height: 48px;
+        font-size: 1.15rem;
+    }
+    
+    .content-wrapper {
+        padding-bottom: 40px;
+    }
 }

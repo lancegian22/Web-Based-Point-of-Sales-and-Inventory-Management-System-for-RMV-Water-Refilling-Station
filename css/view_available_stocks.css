@@ -7,12 +7,12 @@
 body {
     font-family: 'Poppins', sans-serif;
     min-height: 100vh;
-    overflow: hidden;
+    overflow: auto;
 }
 
 .stocks-container {
     width: 100vw;
-    height: 100vh;
+    min-height: 100vh;
     background-color: #e3f2fd;
     background-image: url('../images/water_background.jpg');
     background-size: cover;
@@ -154,4 +154,73 @@ input:disabled {
     color: #333;
     border-color: #666666;
     font-weight: 600;
+}
+
+@media (max-width: 768px) {
+    .top-nav {
+        position: relative;
+        padding: 20px 15px 0px 15px;
+    }
+
+    .nav-left {
+        gap: 10px;
+    }
+
+    .nav-arrow-icon {
+        width: 36px;
+        height: 36px;
+    }
+
+    .mini-logo {
+        width: 65px;
+        height: 65px;
+    }
+
+    .home-icon {
+        width: 38px;
+        height: 38px;
+    }
+
+    .content-wrapper {
+        margin-top: 25px;
+        width: 92%;
+    }
+
+    .dashboard-title {
+        font-size: 1.6rem;
+        margin-bottom: 30px;
+    }
+
+    .split-grid-layout {
+        display: flex;
+        flex-direction: column;
+        gap: 35px; 
+    }
+
+    .grid-column {
+        gap: 16px;
+        width: 100%;
+    }
+
+    .form-group {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start; 
+        gap: 6px; 
+    }
+
+    label {
+        font-size: 1.1rem;
+        white-space: normal; 
+    }
+
+    input[type="text"] {
+        width: 100%;
+        height: 42px;
+        font-size: 1.15rem;
+    }
+    
+    .grid-column:last-child {
+        padding-bottom: 40px;
+    }
 }
