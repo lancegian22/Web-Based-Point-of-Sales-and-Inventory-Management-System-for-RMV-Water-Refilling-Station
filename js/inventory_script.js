@@ -1,25 +1,112 @@
-const BackButton = document.getElementById('BackButton');
-const viewStocksButton = document.getElementById('ViewStocksButton');
-const addStocksButton = document.getElementById('AddStocksButton');
-const editStocksButton = document.getElementById('EditStocksButton');
-const deleteStocksButton = document.getElementById('DeleteStocksButton');
-
-BackButton.addEventListener('click', function() {
+document.getElementById('back-btn').addEventListener('click', () => {
     window.location.href = 'index.html';
 });
 
-viewStocksButton.addEventListener('click', function() {
-    window.location.href = 'view_stocks.html';
+const cards = document.querySelectorAll('.product-card');
+const modalOverlay = document.getElementById('inv-modal-overlay');
+const modalTitle = document.getElementById('inv-modal-title');
+const modalLabel = document.getElementById('inv-modal-label');
+const modalInput = document.getElementById('inv-modal-input');
+const modalConfirm = document.getElementById('inv-modal-confirm');
+const modalCancel = document.getElementById('inv-modal-cancel');
+const errorMsg = document.getElementById('inv-error-msg');
+
+let currentActiveCard = null;
+let currentMode = '';
+
+function showError(message) {
+    errorMsg.textContent = message;
+    errorMsg.style.display = 'block';
+}
+
+function hideError() {
+    errorMsg.textContent = '';
+    errorMsg.style.display = 'none';
+}
+
+cards.forEach(card => {
+    const itemName = card.querySelector('.product-name').textContent;
+    const countDisplay = card.querySelector('.qty-badge');
+
+    card.querySelector('.btn-inv-action.add').addEventListener('click', (e) => {
+        e.stopPropagation();
+        hideError();
+        currentActiveCard = { card, itemName, countDisplay };
+        currentMode = 'add';
+        
+        modalTitle.textContent = `Add Stock - ${itemName}`;
+        modalLabel.textContent = "Please enter a quantity to add:";
+        modalInput.value = "0";
+        modalOverlay.classList.add('active');
+    });
+
+    card.querySelector('.btn-inv-action.edit').addEventListener('click', (e) => {
+        e.stopPropagation();
+        hideError();
+        currentActiveCard = { card, itemName, countDisplay };
+        currentMode = 'edit';
+        
+        let currentStr = countDisplay.textContent.replace('Stock:', '').trim();
+        modalTitle.textContent = `Edit Stock - ${itemName}`;
+        modalLabel.textContent = "Please enter a new total quantity:";
+        modalInput.value = currentStr;
+        modalOverlay.classList.add('active');
+    });
+
+    card.querySelector('.btn-inv-action.delete').addEventListener('click', (e) => {
+        e.stopPropagation();
+        hideError();
+        let currentStr = countDisplay.textContent.replace('Stock:', '').trim();
+        const currentStock = parseInt(currentStr) || 0;
+        
+        currentActiveCard = { card, itemName, countDisplay, currentStock };
+        currentMode = 'delete';
+        
+        modalTitle.textContent = `Remove Stock - ${itemName}`;
+        modalLabel.textContent = `Enter quantity to delete (Current: ${currentStock}):`;
+        modalInput.value = "0";
+        modalOverlay.classList.add('active');
+    });
 });
 
-addStocksButton.addEventListener('click', function() {
-    window.location.href = 'add_stocks.html';
+modalConfirm.addEventListener('click', () => {
+    if (!currentActiveCard) return;
+    hideError();
+
+    const parsed = parseInt(modalInput.value);
+    if (isNaN(parsed) || parsed < 0) {
+        showError('Please enter a valid positive number.');
+        return;
+    }
+
+    const { countDisplay, currentStock, itemName } = currentActiveCard;
+    let currentStr = countDisplay.textContent.replace('Stock:', '').trim();
+    let current = parseInt(currentStr) || 0;
+
+    if (currentMode === 'add' && parsed > 0) {
+        countDisplay.textContent = `Stock: ${current + parsed}`;
+    } else if (currentMode === 'edit') {
+        countDisplay.textContent = `Stock: ${parsed}`;
+    } else if (currentMode === 'delete') {
+        if (currentStock === 0) {
+            showError(`Cannot delete stocks: ${itemName} has no quantity in stock.`);
+            return;
+        }
+        if (parsed > currentStock) {
+            showError(`You cannot remove ${parsed} items because you only have ${currentStock} in stock.`);
+            return;
+        }
+        if (parsed > 0) {
+            countDisplay.textContent = `Stock: ${currentStock - parsed}`;
+        }
+    }
+
+    modalOverlay.classList.remove('active');
+    currentActiveCard = null;
 });
 
-editStocksButton.addEventListener('click', function() {
-    window.location.href = 'edit_stocks.html';
-});
-
-deleteStocksButton.addEventListener('click', function() {
-    window.location.href = 'delete_stocks.html';
+modalCancel.addEventListener('click', () => {
+    modalOverlay.classList.remove('active');
+    currentActiveCard = null;
+    hideError();
 });

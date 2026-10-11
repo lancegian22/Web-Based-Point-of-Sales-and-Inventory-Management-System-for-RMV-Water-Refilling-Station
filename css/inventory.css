@@ -1,177 +1,391 @@
 * {
+    box-sizing: border-box;
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
 }
-
 body {
     font-family: 'Poppins', sans-serif;
-    min-height: 100vh;
-    overflow: auto;
-}
-
-.dashboard-container {
-    width: 100vw;
-    min-height: 100vh;
-    background-color: #e3f2fd;
     background-image: url('../images/water_background.jpg');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
+    background-attachment: fixed;
+    color: #1e293b;
+    padding: 20px;
+}
+.pos-container {
+    max-width: 1400px;
+    margin: 0 auto;
     display: flex;
     flex-direction: column;
-    position: relative;
-}
-
-.top-nav {
-    display: flex;
-    justify-content: space-between;
     align-items: center;
-    padding: 30px 40px;
     width: 100%;
-    position: absolute;
-    top: 0;
-    left: 0;
-    z-index: 20;
 }
-
-.nav-left {
+.main-header {
+    background-color: #f0f9ff;
+    border: 1px solid #bae6fd;
+    border-radius: 12px;
+    padding: 24px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+    text-align: center;
+    position: relative;
+    margin-bottom: 24px;
+    width: 100%;
+}
+.header-top-buttons {
+    position: absolute;
+    top: 24px;
+    left: 24px;
+    display: flex;
+    gap: 8px;
+}
+.btn-gray {
+    background-color: #ef4444;
+    color: #ffffff;
+    border: none;
+    padding: 10px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-family: 'Poppins', sans-serif;
+    transition: background-color 0.15s ease;
     display: flex;
     align-items: center;
-    gap: 20px;
+    justify-content: center;
+    width: 42px; 
+    height: 38px;
 }
-
-.back-link {
-    color: #0000ff;
-    transition: transform 0.2s ease;
+.btn-gray:hover {
+    background-color: #dc2626;
 }
-
-.back-link:hover {
-    transform: scale(1.15);
+.btn-back-img {
+    width: 20px; 
+    height: 20px;
+    object-fit: contain;
+    display: block;
+    mix-blend-mode: multiply; 
 }
-
-.nav-arrow-icon {
-    width: 48px;
-    height: 48px;
+.logo-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+    margin-top: 10px;
 }
-
-.mini-logo {
-    width: 90px;
-    height: 90px;
-    border-radius: 50%;
+.station-logo {
+    height: 80px;
+    width: 80px;
     object-fit: cover;
+    border-radius: 50%;
+    border: 2px solid #ffffff;
+}
+.system-title {
+    color: #1e3a8a;
+    font-size: 20px;
+    font-weight: 700;
+    max-width: 600px;
+    line-height: 1.4;
+}
+.pos-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 24px;
+    width: 100%;
+}
+.catalog-section {
+    width: 100%;
+    margin-bottom: 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.section-title-blue {
+    color: #1d4ed8;
+    font-size: 16px;
+    font-weight: 700;
+    margin-bottom: 16px;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    text-align: center;
+    width: 100%;
+    max-width: 1200px;
+}
+.product-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    width: 100%;
+    max-width: 1200px;
+    justify-content: center;
+}
+.product-card {
+    background-color: #f0f9ff;
+    border: 1px solid #bae6fd;
+    border-radius: 8px;
+    padding: 16px;
+    text-align: center;
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
+    width: 220px;
+}
+.product-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+}
+.image-placeholder {
+    height: 120px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 12px;
+}
+.image-placeholder img {
+    max-height: 100%;
+    max-width: 100%;
+    object-fit: contain;
+}
+.product-info {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+.product-name {
+    font-size: 14px;
+    font-weight: 600;
+    color: #334155;
     display: block;
 }
-
-.content-wrapper {
-    margin: auto;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    width: 95%;
-    max-width: 640px;
-    z-index: 10;
-    margin-top: 140px;
-}
-
-.dashboard-title {
-    font-size: 2.2rem;
+.qty-badge {
+    background-color: #ffffff;
+    color: #0f172a;
+    padding: 4px 8px;
+    border-radius: 4px;
     font-weight: 700;
-    color: #212529;
-    letter-spacing: 0.5px;
-    margin-bottom: 35px;
+    font-size: 13px;
+    border: 1px solid #cbd5e1;
 }
-
-.button-group {
+.inventory-card-actions {
     display: flex;
     flex-direction: column;
-    gap: 18px;
+    gap: 8px;
     width: 100%;
-    max-width: 500px;
-    padding-bottom: 30px;
+    margin-top: 10px;
 }
-
-.btn {
-    display: grid;
-    grid-template-columns: 70px 1fr 70px;
-    align-items: center;
-    text-decoration: none;
-    padding: 12px 24px;
-    border-radius: 14px;
-    transition: all 0.2s ease-in-out;
-    height: 68px;
-}
-
-.btn-icon {
-    width: 32px;
-    height: 32px;
-    grid-column: 1;
-    justify-self: center;
-}
-
-.btn-text {
-    grid-column: 2;
+.btn-inv-action {
+    width: 100%;
+    border: none;
+    padding: 10px 14px;
+    border-radius: 6px;
     font-weight: 700;
-    font-size: 1.35rem;
-    letter-spacing: 0.5px;
-    text-align: center;
-}
-
-.btn-primary {
-    background-color: #0000ff;
+    font-size: 13px;
+    cursor: pointer;
+    font-family: 'Poppins', sans-serif;
     color: #ffffff;
-    border: 3px solid #0000ff;
+    transition: background-color 0.15s ease;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
 }
-
-.btn-primary:hover {
-    background-color: #0000cc;
-    border-color: #0000cc;
-    transform: translateY(-2px);
+.btn-inv-action.add {
+    background-color: #10b981;
 }
-
+.btn-inv-action.add:hover {
+    background-color: #059669;
+}
+.btn-inv-action.edit {
+    background-color: #1d4ed8;
+}
+.btn-inv-action.edit:hover {
+    background-color: #1e40af;
+}
+.btn-inv-action.delete {
+    background-color: #ef4444;
+}
+.btn-inv-action.delete:hover {
+    background-color: #dc2626;
+}
+.btn-icon-img {
+    width: 14px; 
+    height: 14px;
+    object-fit: contain; 
+    display: inline-block;
+    mix-blend-mode: multiply;
+}
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.4);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    z-index: 2000;
+}
+.modal-overlay.active {
+    display: flex;
+}
+.modal-container {
+    background-color: #f0f9ff;
+    border: 1px solid #bae6fd;
+    width: 100%;
+    max-width: 440px;
+    border-radius: 12px;
+    padding: 24px;
+    box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
+    font-family: 'Poppins', sans-serif;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+.modal-container h2 {
+    font-size: 16px;
+    font-weight: 700;
+    color: #1e3a8a;
+    margin: 0;
+}
+.modal-field {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    width: 100%;
+}
+.modal-field label {
+    font-size: 13px;
+    font-weight: 600;
+    color: #475569;
+}
+.modal-field input[type="number"] {
+    width: 100%;
+    padding: 10px 14px;
+    border: 1px solid #cbd5e1;
+    border-radius: 6px;
+    font-size: 14px;
+    font-family: 'Poppins', sans-serif;
+    color: #1e293b;
+    background-color: #ffffff;
+}
+.modal-field input[type="number"]:focus {
+    outline: none;
+    border-color: #1d4ed8;
+}
+.modal-actions {
+    display: flex;
+    gap: 12px;
+    width: 100%;
+    margin-top: 8px;
+}
+.modal-actions button {
+    flex: 1;
+    border: none;
+    padding: 12px;
+    border-radius: 6px;
+    font-weight: 700;
+    font-size: 14px;
+    cursor: pointer;
+    font-family: 'Poppins', sans-serif;
+    transition: background-color 0.15s ease;
+}
+.modal-actions .btn-success {
+    background-color: #10b981;
+    color: #ffffff;
+}
+.modal-actions .btn-success:hover {
+    background-color: #059669;
+}
+.modal-actions .btn-light {
+    background-color: #ef4444;
+    color: #ffffff;
+}
+.modal-actions .btn-light:hover {
+    background-color: #dc2626;
+}
+@media (max-width: 1024px) {
+    .product-grid {
+        padding-left: 16px;
+        padding-right: 16px;
+    }
+}
 @media (max-width: 480px) {
-    .top-nav {
-        position: relative; 
-        padding: 20px 20px 0px 20px;
+    body {
+        padding: 10px;
     }
-
-    .nav-left {
-        gap: 10px;
+    .pos-container {
+        width: 100%;
     }
-
-    .nav-arrow-icon {
-        width: 36px; 
-        height: 36px;
+    .main-header {
+        padding: 40px 12px 20px 12px;
+        margin-bottom: 16px;
+        width: 100%;
     }
-
-    .mini-logo {
-        width: 65px; 
-        height: 65px;
+    .header-top-buttons {
+        top: 36px;
+        left: 16px;
     }
-
-    .content-wrapper {
-        margin-top: 25px; 
-        width: 92%;
+    .logo-section {
+        margin-top: 20px;
     }
-
-    .dashboard-title {
-        font-size: 1.6rem; 
-        margin-bottom: 25px;
+    .station-logo {
+        height: 60px;
+        width: 60px;
     }
-
-    .btn {
-        height: 60px; 
-        padding: 8px 16px;
-        grid-template-columns: 45px 1fr 45px; 
+    .system-title {
+        font-size: 15px;
+        margin-top: 8px;
     }
-
-    .btn-text {
-        font-size: 1.1rem; 
+    .section-title-blue {
+        font-size: 14px;
+        margin-bottom: 12px;
+        padding: 0 4px;
     }
-
-    .btn-icon {
-        width: 24px; 
-        height: 24px;
+    .product-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 8px;
+        width: 100%;
+        padding: 0 4px;
+    }
+    .product-card {
+        width: 100% !important;
+        max-width: 100%;
+        padding: 10px;
+        border-radius: 6px;
+    }
+    .image-placeholder {
+        height: 80px;
+        margin-bottom: 6px;
+    }
+    .product-info {
+        gap: 6px;
+    }
+    .product-name {
+        font-size: 12px;
+    }
+    .qty-badge {
+        padding: 4px;
+        font-size: 11px;
+    }
+    .inventory-card-actions {
+        gap: 4px;
+        margin-top: 4px;
+    }
+    .btn-inv-action {
+        padding: 8px 10px;
+        font-size: 11px;
+        border-radius: 4px;
+        gap: 4px;
+    }
+    .btn-icon-img {
+        width: 12px;
+        height: 12px;
+    }
+    .catalog-section:nth-child(1) .product-card:last-child,
+    .catalog-section:nth-child(3) .product-card:last-child {
+        grid-column: span 2;
+        justify-self: center;
+        width: calc(50% - 4px) !important;
     }
 }
