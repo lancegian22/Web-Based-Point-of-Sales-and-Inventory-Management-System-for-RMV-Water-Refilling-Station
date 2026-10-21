@@ -25,8 +25,13 @@ function hideError() {
 }
 
 cards.forEach(card => {
-    const itemName = card.querySelector('.product-name').textContent;
+    const itemName = card.querySelector('.product-name').textContent.trim();
     const countDisplay = card.querySelector('.qty-badge');
+    
+    const savedStock = localStorage.getItem(`stock_${itemName}`);
+    if (savedStock !== null) {
+        countDisplay.textContent = `Stock: ${savedStock}`;
+    }
 
     card.querySelector('.btn-inv-action.add').addEventListener('click', (e) => {
         e.stopPropagation();
@@ -82,11 +87,12 @@ modalConfirm.addEventListener('click', () => {
     const { countDisplay, currentStock, itemName } = currentActiveCard;
     let currentStr = countDisplay.textContent.replace('Stock:', '').trim();
     let current = parseInt(currentStr) || 0;
+    let finalStock = current;
 
     if (currentMode === 'add' && parsed > 0) {
-        countDisplay.textContent = `Stock: ${current + parsed}`;
+        finalStock = current + parsed;
     } else if (currentMode === 'edit') {
-        countDisplay.textContent = `Stock: ${parsed}`;
+        finalStock = parsed;
     } else if (currentMode === 'delete') {
         if (currentStock === 0) {
             showError(`Cannot delete stocks: ${itemName} has no quantity in stock.`);
@@ -97,9 +103,13 @@ modalConfirm.addEventListener('click', () => {
             return;
         }
         if (parsed > 0) {
-            countDisplay.textContent = `Stock: ${currentStock - parsed}`;
+            finalStock = currentStock - parsed;
         }
     }
+
+    countDisplay.textContent = `Stock: ${finalStock}`;
+    
+    localStorage.setItem(`stock_${itemName}`, finalStock);
 
     modalOverlay.classList.remove('active');
     currentActiveCard = null;

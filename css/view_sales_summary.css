@@ -3,229 +3,299 @@
     margin: 0;
     padding: 0;
 }
+
 body {
-    font-family: 'Poppins', sans-serif;
-    background-image: url('../images/water_background.jpg');
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
+    font-family: 'Inter', 'Segoe UI', 'Poppins', sans-serif;
+    background-color: #f8fafc;
     color: #1e293b;
-    padding: 20px;
+    display: flex;
+    min-height: 100vh;
+    overflow: hidden;
 }
+
 .pos-container {
-    max-width: 1400px;
-    margin: 0 auto;
+    display: flex;
+    width: 100vw;
+    height: 100vh;
+}
+
+.main-header {
+    width: 260px;
+    background-color: #0b192c;
+    padding: 24px 16px;
     display: flex;
     flex-direction: column;
     align-items: center;
-    width: 100%;
+    flex-shrink: 0;
+    border-right: 1px solid #1e293b;
+    border-radius: 0;
+    box-shadow: none;
+    margin-bottom: 0;
+    text-align: left;
 }
-.main-header {
-    background-color: #f0f9ff;
-    border: 1px solid #bae6fd;
-    border-radius: 12px;
-    padding: 24px;
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
-    text-align: center;
-    position: relative;
-    margin-bottom: 24px;
-    width: 100%;
-}
+
 .header-top-buttons {
-    position: absolute;
-    top: 24px;
-    left: 24px;
-    display: flex;
-    gap: 8px;
+    display: none; 
 }
-.btn-red-reset {
-    background-color: #ef4444;
-    color: #ffffff;
-    border: none;
-    padding: 10px;
-    border-radius: 6px;
-    cursor: pointer;
-    font-family: 'Poppins', sans-serif;
-    transition: background-color 0.15s ease;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 42px;
-    height: 38px;
-}
-.btn-red-reset:hover {
-    background-color: #dc2626;
-}
-.btn-back-img {
-    width: 20px;
-    height: 20px;
-    object-fit: contain;
-    display: block;
-    mix-blend-mode: multiply;
-}
+
 .logo-section {
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
-    gap: 16px;
-    margin-top: 10px;
+    gap: 12px;
+    margin-bottom: 40px;
+    width: 100%;
 }
+
 .station-logo {
-    height: 80px;
-    width: 80px;
+    height: 70px;
+    width: 70px;
     object-fit: cover;
     border-radius: 50%;
-    border: 2px solid #ffffff;
+    border: 2px solid #38bdf8;
 }
+
 .system-title {
-    color: #1e3a8a;
-    font-size: 20px;
-    font-weight: 700;
-    max-width: 600px;
-    line-height: 1.4;
+    color: #ffffff;
+    font-size: 11px;
+    font-weight: 600;
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    opacity: 0.9;
+    line-height: 1.5;
 }
+
+.sidebar-menu {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-top: 20px;
+}
+
+.menu-label {
+    color: #94a3b8;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    margin-bottom: 12px;
+    padding-left: 12px;
+}
+
+.menu-btn {
+    display: block;
+    width: 100%;
+    color: #94a3b8;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 500;
+    padding: 12px 16px;
+    border-radius: 8px;
+    transition: all 0.2s ease;
+    text-align: left;
+}
+
+.menu-btn:hover {
+    background-color: #1e293b;
+    color: #ffffff;
+}
+
+.menu-btn.active {
+    background-color: #1d4ed8;
+    color: #ffffff;
+    font-weight: 600;
+}
+
+.menu-btn.exit-btn:hover {
+    background-color: #ef4444; 
+    color: #ffffff;
+}
+
+.pos-content {
+    flex: 1;
+    padding: 32px;
+    background-color: #f8fafc;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    overflow-y: auto;
+    height: 100%;
+    width: 100%;
+}
+
 .sales-filter-navigation {
     display: flex;
-    justify-content: center;
-    gap: 16px;
-    margin-bottom: 24px;
+    justify-content: flex-start;
+    gap: 12px;
     width: 100%;
-    max-width: 1200px;
+    max-width: 1000px;
+    margin: 0 auto 12px auto;
 }
+
 .btn-filter {
     flex: 1;
     background-color: #ffffff;
-    border: 1px solid #cbd5e1;
+    border: 1px solid #e2e8f0;
     color: #475569;
-    padding: 14px;
+    padding: 12px 20px;
     border-radius: 8px;
-    font-weight: 700;
-    font-size: 15px;
+    font-weight: 600;
+    font-size: 14px;
     cursor: pointer;
-    font-family: 'Poppins', sans-serif;
-    transition: all 0.15s ease;
-    letter-spacing: 0.5px;
+    font-family: 'Inter', sans-serif;
+    transition: all 0.15s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.02);
 }
+
 .btn-filter:hover {
-    background-color: #f1f5f9;
-}
-.btn-filter.active {
-    background-color: #1d4ed8;
+    background-color: #1565c0;
     color: #ffffff;
-    border-color: #1d4ed8;
 }
-.pos-content {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 100%;
-}
+
 .sales-view-panel {
     display: none;
     width: 100%;
-    max-width: 1200px;
-    animation: fadeIn 0.2s ease;
+    max-width: 1000px;
+    margin: 0 auto;
+    animation: fadeIn 0.2s cubic-bezier(0.4, 0, 0.2, 1);
 }
+
 .sales-view-panel.active {
     display: flex;
     flex-direction: column;
     align-items: center;
 }
+
 .section-title-blue {
-    color: #1d4ed8;
-    font-size: 18px;
+    color: #0f172a;
+    font-size: 14px;
     font-weight: 700;
-    margin-bottom: 20px;
-    letter-spacing: 0.5px;
     text-transform: uppercase;
-}
-.sales-report-card {
-    background-color: #f0f9ff;
-    border: 1px solid #bae6fd;
-    border-radius: 12px;
-    padding: 32px;
+    margin-bottom: 24px;
+    letter-spacing: 0.5px;
+    text-align: center;
     width: 100%;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
 }
+
+.sales-report-card {
+    background-color: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 12px;
+    padding: 24px;
+    width: 100%;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.02);
+}
+
 .sales-list-group {
     list-style: none;
     display: flex;
     flex-direction: column;
+    width: 100%;
 }
+
 .sales-list-group li {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 16px 24px;
-    border-bottom: 1px dashed #bae6fd;
-    font-size: 15px;
-    font-weight: 600;
+    padding: 16px 20px;
+    border-bottom: 1px solid #f1f5f9;
+    font-size: 14px;
+    font-weight: 500;
     color: #334155;
     width: 100%;
 }
+
+.sales-list-group li:last-child {
+    border-bottom: none;
+}
+
 .col-img-header,
 .sales-item-thumb {
-    width: 60px;
-    flex: 0 0 60px;
-    margin-right: 16px;
-}
-.sales-item-thumb img {
-    height: 48px;
     width: 48px;
+    flex: 0 0 48px;
+    margin-right: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.sales-item-thumb img {
+    height: 40px;
+    width: 40px;
     object-fit: contain;
-    background-color: #ffffff;
-    border-radius: 8px;
-    border: 1px solid #bae6fd;
+    background-color: #f8fafc;
+    border-radius: 6px;
+    border: 1px solid #e2e8f0;
     padding: 4px;
 }
+
 .sales-list-group li span:nth-child(2) {
     flex: 2;
     text-align: left;
+    font-weight: 600;
+    color: #1e293b;
 }
+
 .sales-list-group li span:nth-child(3) {
     flex: 1;
     text-align: center;
     min-width: 100px;
 }
+
 .sales-list-group li span:nth-child(4) {
     flex: 1;
     text-align: center;
     min-width: 100px;
+    font-weight: 600;
+    color: #0f172a;
 }
+
 .sales-list-group li span:nth-child(5) {
     flex: 1;
-    text-align: center;
+    text-align: right;
     min-width: 120px;
+    font-weight: 700;
+    color: #047857;
 }
+
 .sales-list-group .sales-list-header {
     font-weight: 700;
-    font-size: 16px;
-    color: #1e3a8a;
-    border-bottom: 2px solid #bae6fd;
-    background-color: rgba(255, 255, 255, 0.5);
-    border-radius: 8px;
-    padding: 18px 24px;
+    font-size: 13px;
+    color: #475569;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    border-bottom: 2px solid #e2e8f0;
+    background-color: #f8fafc;
+    border-radius: 6px;
+    padding: 14px 20px;
 }
+
+.sales-list-header span {
+    color: #475569 !important;
+}
+
 .summary-total-footer {
     display: flex;
     justify-content: space-between;
     align-items: center;
     margin-top: 24px;
-    padding: 20px 24px;
-    background-color: rgba(255, 255, 255, 0.7);
+    padding: 20px;
+    background-color: #f8fafc;
     border-radius: 8px;
-    font-weight: 700;
-    color: #1e293b;
-    font-size: 18px;
-    border: 1px solid #bae6fd;
+    font-weight: 600;
+    color: #475569;
+    font-size: 15px;
+    border: 1px solid #e2e8f0;
+    width: 100%;
 }
+
 .summary-total-footer span {
-    font-size: 26px;
+    font-size: 22px;
     font-weight: 700;
     color: #10b981;
 }
+
 @keyframes fadeIn {
     from { opacity: 0; transform: translateY(4px); }
     to { opacity: 1; transform: translateY(0); }
@@ -233,133 +303,138 @@ body {
 
 @media (max-width: 480px) {
     body {
-        padding: 10px;
+        padding: 0;
+        margin: 0;
+        overflow-x: hidden;
+        overflow-y: auto;
+        min-height: 100vh;
     }
+
     .pos-container {
+        flex-direction: column;
         width: 100%;
-        max-width: 100%;
+        height: auto;
     }
+
     .main-header {
-        padding: 40px 12px 20px 12px;
-        margin-bottom: 16px;
-        width: 100%;
-        border-radius: 12px;
+        width: 100% !important;
+        height: auto !important;
+        padding: 32px 16px 16px 16px !important; 
+        border-right: none;
+        border-bottom: 2px solid #1e293b;
+        margin-bottom: 0;
     }
-    .header-top-buttons {
-        top: 36px;
-        left: 16px;
-    }
+
     .logo-section {
-        margin-top: 20px;
+        margin-bottom: 12px;
+        gap: 8px;
     }
+
     .station-logo {
-        height: 60px;
-        width: 60px;
+        height: 50px;
+        width: 50px;
     }
+
     .system-title {
-        font-size: 15px;
-        margin-top: 8px;
+        font-size: 13px;
     }
-    .sales-filter-navigation {
+
+    .sidebar-menu {
         display: flex;
         flex-direction: row;
-        width: 100%;
-        max-width: 100%;
+        flex-wrap: wrap;
         gap: 6px;
-        margin-bottom: 16px;
-        padding: 0;
+        margin-top: 10px;
+        justify-content: center;
     }
-    .btn-filter {
-        flex: 1;
-        padding: 12px 4px;
-        font-size: 12px;
-        border-radius: 6px;
-        text-align: center;
+
+    .menu-label {
+        display: none; 
     }
+
+    .menu-btn {
+        width: auto !important;
+        padding: 6px 12px;
+        font-size: 11px;
+    }
+
     .pos-content {
-        width: 100%;
-        max-width: 100%;
-        padding: 0;
+        flex-direction: column !important; 
+        padding: 16px !important;
+        gap: 20px !important;
+        height: auto !important;
+        overflow-y: visible !important;
     }
-    .sales-view-panel {
-        width: 100%;
-        max-width: 100%;
-        padding: 0;
-    }
-    .section-title-blue {
-        font-size: 15px;
-        margin-bottom: 12px;
-    }
-    .sales-report-card {
-        padding: 20px 12px;
-        border-radius: 12px;
+
+    .sales-filter-navigation {
+        flex-direction: column !important;
+        align-items: stretch !important;
+        gap: 12px !important;
+        padding: 0 !important;
         width: 100% !important;
-        max-width: 100%;
+        margin-bottom: 8px !important;
     }
+
+    .btn-filter {
+        padding: 12px !important;
+        font-size: 13px !important;
+        width: 100% !important;
+    }
+
+    .sales-view-panel {
+        width: 100% !important;
+    }
+
+    .section-title-blue {
+        font-size: 14px !important;
+        margin-bottom: 12px !important;
+        text-align: left !important;
+    }
+
+    /* Upang hindi maputol o mag-overlap ang mahabang table ng listahan ng kita */
+    .sales-report-card {
+        padding: 12px 8px !important;
+        border-radius: 8px !important;
+        width: 100% !important;
+        overflow-x: auto !important; /* Ginawang scrollable pabalagbag para safe */
+    }
+
     .sales-list-group {
-        width: 100%;
+        min-width: 480px; /* Pinapanatili ang sapat na lapad ng kolum para mabasa */
     }
+
     .sales-list-group li {
-        padding: 12px 4px;
-        font-size: 12px;
-        gap: 4px;
-        display: flex;
-        align-items: center;
-        width: 100%;
+        padding: 12px 4px !important;
+        font-size: 11px !important;
     }
+
     .sales-list-group .sales-list-header {
-        padding: 12px 4px;
-        font-size: 12px;
+        padding: 10px 4px !important;
+        font-size: 11px !important;
     }
+
     .col-img-header,
     .sales-item-thumb {
-        width: 32px;
-        flex: 0 0 32px;
-        margin-right: 4px;
+        width: 32px !important;
+        flex: 0 0 32px !important;
+        margin-right: 6px !important;
     }
+
     .sales-item-thumb img {
-        height: 28px;
-        width: 28px;
-        border-radius: 4px;
-        padding: 1px;
+        height: 28px !important;
+        width: 28px !important;
+        border-radius: 4px !important;
     }
-    .sales-list-group li span:nth-child(2) {
-        flex: 2;
-        text-align: left;
-        min-width: unset;
-    }
-    .sales-list-group li span:nth-child(3) {
-        flex: 1;
-        text-align: center;
-        display: flex;
-        justify-content: center;
-        min-width: unset;
-    }
-    .sales-list-group li span:nth-child(4) {
-        flex: 1;
-        text-align: center;
-        display: flex;
-        justify-content: center;
-        min-width: unset;
-    }
-    .sales-list-group li span:nth-child(5) {
-        flex: 1.2;
-        text-align: center;
-        display: flex;
-        justify-content: center;
-        min-width: unset;
-    }
+
     .summary-total-footer {
-        margin-top: 16px;
-        padding: 20px 16px;
-        font-size: 14px;
-        border-radius: 12px;
+        margin-top: 16px !important;
+        padding: 14px 12px !important;
+        font-size: 13px !important;
+        border-radius: 8px !important;
         width: 100% !important;
-        max-width: 100%;
-        background-color: rgba(255, 255, 255, 0.85);
-        border: 1px solid #bae6fd;
     }
+
     .summary-total-footer span {
-        font-size: 20px;
+        font-size: 18px !important;
     }
 }

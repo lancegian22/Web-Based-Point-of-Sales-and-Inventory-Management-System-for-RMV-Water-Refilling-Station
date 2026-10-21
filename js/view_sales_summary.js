@@ -1,122 +1,122 @@
 document.addEventListener("DOMContentLoaded", () => {
-    const backBtn = document.getElementById('back-btn');
+    const backBtn = document.getElementById('back-btn') || document.querySelector('.back-btn') || document.querySelector('button');
     if (backBtn) {
         backBtn.addEventListener('click', () => {
             window.location.href = 'index.html';
         });
     }
-    const filterButtons = document.querySelectorAll('.btn-filter');
-    const viewPanels = document.querySelectorAll('.sales-view-panel');
 
-    filterButtons.forEach(button => {
-        button.addEventListener('click', () => {
-            filterButtons.forEach(btn => btn.classList.remove('active'));
-            viewPanels.forEach(panel => panel.classList.remove('active'));
+    const now = new Date();
+    const todayStr = now.getFullYear() + '-' + 
+                     String(now.getMonth() + 1).padStart(2, '0') + '-' + 
+                     String(now.getDate()).padStart(2, '0');
+    
+    const startDateInput = document.getElementById('start-date') || document.querySelector('input[type="date"]:first-of-type');
+    const endDateInput = document.getElementById('end-date') || document.querySelector('input[type="date"]:last-of-type');
+    
+    const filterBtn = document.getElementById('btn-filter-date') || 
+                      document.getElementById('filter-btn') || 
+                      document.querySelector('button[class*="filter"]') ||
+                      document.querySelector('.sales-view-panel button') ||
+                      Array.from(document.querySelectorAll('button')).find(el => el.textContent.includes('Filter'));
 
-            button.classList.add('active');
-            
-            const targetId = button.getAttribute('data-target');
-            document.getElementById(targetId).classList.add('active');
+    if (startDateInput && !startDateInput.value) startDateInput.value = todayStr;
+    if (endDateInput && !endDateInput.value) endDateInput.value = todayStr;
+
+    if (filterBtn) {
+        filterBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            loadSalesByDateRange();
         });
-    });
+    }
 
-    loadAllSalesSummaries();
-    setupMidnightReset();
+    loadSalesByDateRange();
 });
 
-function loadAllSalesSummaries() {
+function loadSalesByDateRange() {
     const salesLog = JSON.parse(localStorage.getItem('rmv_sales_log')) || [];
     
-    calculateAndRenderView(salesLog, 'daily');
-    calculateAndRenderView(salesLog, 'weekly');
-    calculateAndRenderView(salesLog, 'monthly');
-    calculateAndRenderView(salesLog, 'yearly');
-}
+    const startDateInput = document.getElementById('start-date') || document.querySelector('input[type="date"]:first-of-type');
+    const endDateInput = document.getElementById('end-date') || document.querySelector('input[type="date"]:last-of-type');
 
-function calculateAndRenderView(salesLog, timeframe) {
-    const now = new Date();
-    const todayStr = now.toDateString();
-    const currentMonth = now.getMonth();
-    const currentYear = now.getFullYear();
-    
-    const sevenDaysAgo = new Date();
-    sevenDaysAgo.setDate(now.getDate() - 7);
+    if (!startDateInput || !endDateInput) return;
 
-    const filteredOrders = salesLog.filter(order => {
-        const orderDate = new Date(order.timestamp);
-        
-        if (timeframe === 'daily') {
-            return orderDate.toDateString() === todayStr;
-        } else if (timeframe === 'weekly') {
-            return orderDate >= sevenDaysAgo && orderDate <= now;
-        } else if (timeframe === 'monthly') {
-            return orderDate.getMonth() === currentMonth && orderDate.getFullYear() === currentYear;
-        } else if (timeframe === 'yearly') {
-            return orderDate.getFullYear() === currentYear;
-        }
-        return false;
-    });
+    const startDateVal = startDateInput.value;
+    const endDateVal = endDateInput.value;
 
     const summaryMap = {
         "SLIM GALLON": { qty: 0, sales: 0 },
         "ROUND GALLON": { qty: 0, sales: 0 },
         "1L BOTTLED WATER": { qty: 0, sales: 0 },
         "500ML BOTTLED WATER": { qty: 0, sales: 0 },
-        "350ML BOTTLED WATER": { qty: 0, sales: 0 }
+        "350ML BOTTLED WATER": { qty: 0, sales: 0 },
+        "SLIM GALLON SMALL CAP": { qty: 0, sales: 0 },
+        "SLIM GALLON BIG CAP": { qty: 0, sales: 0 },
+        "ROUND GALLON CAP": { qty: 0, sales: 0 },
+        "BOTTLED WATER 350ML CAP": { qty: 0, sales: 0 },
+        "BOTTLED WATER 500ML CAP": { qty: 0, sales: 0 },
+        "BOTTLED WATER 1L CAP": { qty: 0, sales: 0 },
+        "SEAL": { qty: 0, sales: 0 },
+        "STICKER": { qty: 0, sales: 0 },
+        "GALLON PLASTIC COVER": { qty: 0, sales: 0 }
     };
 
-    filteredOrders.forEach(order => {
+    salesLog.forEach(order => {
+        let orderDate = order.date || '';
+        
+        if (startDateVal && endDateVal) {
+            if (orderDate && (orderDate < startDateVal || orderDate > endDateVal)) return;
+        }
+
         let productKey = order.type ? order.type.toUpperCase().trim() : '';
         
-        if (productKey === 'BOTTLED WATER 1L') productKey = '1L BOTTLED WATER';
-        if (productKey === 'BOTTLED WATER 500ML') productKey = '500ML BOTTLED WATER';
-        if (productKey === 'BOTTLED WATER 350ML') productKey = '350ML BOTTLED WATER';
+        if (productKey.includes('SLIM GALLON') && !productKey.includes('CAP')) productKey = 'SLIM GALLON';
+        if (productKey.includes('ROUND GALLON') && !productKey.includes('CAP')) productKey = 'ROUND GALLON';
 
         if (summaryMap[productKey]) {
-            summaryMap[productKey].qty += order.quantity;
-            summaryMap[productKey].sales += order.total;
+            summaryMap[productKey].qty += parseInt(order.quantity) || 0;
+            summaryMap[productKey].sales += parseFloat(order.total) || 0;
         }
     });
 
-    const panel = document.getElementById(`${timeframe}-summary`);
-    if (!panel) return;
+    renderSalesSummaryTable(summaryMap);
+}
 
-    const listItems = panel.querySelectorAll('.sales-list-group li:not(.sales-list-header)');
+function renderSalesSummaryTable(summaryMap) {
+    const listItems = document.querySelectorAll('.sales-list-group li:not(.sales-list-header)');
     let grandTotal = 0;
 
     listItems.forEach(row => {
         const columns = row.querySelectorAll('span');
-        if (columns.length < 5) return;
+        if (columns.length < 4) return;
 
-        const productName = columns[1].textContent.toUpperCase().trim();
+        let nameSpan = columns[1]; 
+        let qtySpan = columns[columns.length - 2];  
+        let salesSpan = columns[columns.length - 1]; 
+
+        if (!nameSpan || !qtySpan || !salesSpan) return;
+
+        let productName = nameSpan.textContent.toUpperCase().trim();
+
+        if (productName.includes('SLIM GALLON') && !productName.includes('CAP')) productName = 'SLIM GALLON';
+        if (productName.includes('ROUND GALLON') && !productName.includes('CAP')) productName = 'ROUND GALLON';
+        if (productName.includes('1L BOTTLED WATER') || productName.includes('BOTTLED WATER 1L')) productName = '1L BOTTLED WATER';
+        if (productName.includes('500ML BOTTLED WATER') || productName.includes('BOTTLED WATER 500ML')) productName = '500ML BOTTLED WATER';
+        if (productName.includes('350ML BOTTLED WATER') || productName.includes('BOTTLED WATER 350ML')) productName = '350ML BOTTLED WATER';
 
         if (summaryMap[productName]) {
             const data = summaryMap[productName];
-            columns[3].textContent = data.qty;
-            columns[4].textContent = `₱${data.sales.toFixed(2)}`;
+            qtySpan.textContent = data.qty;
+            salesSpan.textContent = `₱${data.sales.toFixed(2)}`;
             grandTotal += data.sales;
+        } else {
+            qtySpan.textContent = "0";
+            salesSpan.textContent = "₱0.00";
         }
     });
 
-    const footerTotal = panel.querySelector('.summary-total-footer span');
+    const footerTotal = document.querySelector('.summary-total-footer span:last-child') || document.querySelector('.summary-total-footer span');
     if (footerTotal) {
         footerTotal.textContent = `₱${grandTotal.toFixed(2)}`;
     }
-}
-
-let midnightTimer = null;
-function setupMidnightReset() {
-    if (midnightTimer) clearTimeout(midnightTimer);
-
-    const now = new Date();
-    const midnight = new Date();
-    
-    midnight.setHours(24, 0, 0, 0);
-    
-    const timeUntilMidnight = midnight.getTime() - now.getTime();
-    
-    midnightTimer = setTimeout(() => {
-        loadAllSalesSummaries();
-        setupMidnightReset();
-    }, timeUntilMidnight);
 }

@@ -7,30 +7,37 @@
     <link rel="stylesheet" href="css/pos.css">
     <link rel="preconnect" href="https://googleapis.com">
     <link rel="preconnect" href="https://gstatic.com" crossorigin>
-    <link href="https://googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <div class="pos-container">
-        <header class="main-header">
-            <div class="header-top-buttons">
-                <button id="back-btn" class="btn-gray">
-                    <img src="images/back_icon.png" alt="Back" class="btn-back-img">
-                </button>
-            </div>
-            <div class="logo-section">
-                <img src="images/water_logo.png" alt="RMV Logo" class="station-logo">
+    <div class="pos-container">                                                                        
+        <header class="main-header">                                                                   
+            <div class="header-top-buttons">                                                           
+                <button id="back-btn" class="btn-gray">                                                
+                    <img src="images/back_icon.png" alt="Back" class="btn-back-img">                   
+                </button>                                                                              
+            </div>                                                                                     
+            <div class="logo-section">                                                                 
+                <img src="images/water_logo.png" alt="RMV Logo" class="station-logo">                  
                 <h1 class="system-title">RMV Water Refilling Station - Point of Sale</h1>
             </div>
-        </header>
-
+            <nav class="sidebar-menu">
+            <span class="menu-label">MENU</span>
+                
+            <a href="pos.html" class="menu-btn active">Point of Sale (POS)</a>
+            <a href="inventory_management_system.html" class="menu-btn">Inventory Management</a>
+            <a href="view_sales_summary.html" class="menu-btn">Sales Summary</a>
+            <a href="index.html" class="menu-btn exit-btn">Exit</a>
+        </nav>                                                                                  
+        </header>                                                                                      
         <div class="pos-content">
             <main class="catalog-section">
-                <h2 class="section-title-blue">PRODUCTS</h2>
+                <h2 class="section-title-blue">CONTAINERS</h2>
                 <div class="product-grid">
                     <div class="product-card" data-name="Slim Gallon" data-price="25.00">
                         <div class="image-placeholder">
                             <img src="images/slim_gallon.png" alt="Slim Gallon">
-                        </div>
+                    </div>
                         <div class="product-info">
                             <span class="product-name">Slim Gallon</span>
                             <span class="product-price">₱25.00</span>
@@ -73,11 +80,100 @@
                         </div>
                     </div>
                 </div>
-            </main>
 
+                <h2 class="section-title-blue" style="margin-top: 32px;">CAPS</h2>
+                <div class="product-grid">
+                    <div class="product-card" data-name="Slim Gallon Small Cap" data-price="5.00">
+                        <div class="image-placeholder">
+                            <img src="images/small_cap.png" alt="Slim Gallon Small Cap">
+                        </div>
+                        <div class="product-info">
+                            <span class="product-name">Slim Gallon Small Cap</span>
+                            <span class="product-price">₱5.00</span>
+                        </div>
+                    </div>
+                    <div class="product-card" data-name="Slim Gallon Big Cap" data-price="5.00">
+                        <div class="image-placeholder">
+                            <img src="images/big_cap.png" alt="Slim Gallon Big Cap">
+                        </div>
+                        <div class="product-info">
+                            <span class="product-name">Slim Gallon Big Cap</span>
+                            <span class="product-price">₱5.00</span>
+                        </div>
+                    </div>
+                    <div class="product-card" data-name="Round Gallon Cap" data-price="5.00">
+                        <div class="image-placeholder">
+                            <img src="images/round_gallon_cap.png" alt="Round Gallon Cap">
+                        </div>
+                        <div class="product-info">
+                            <span class="product-name">Round Gallon Cap</span>
+                            <span class="product-price">₱5.00</span>
+                        </div>
+                    </div>
+                    <div class="product-card" data-name="Bottled Water 350ml Cap" data-price="2.00">
+                        <div class="image-placeholder">
+                            <img src="images/bottle_cap.png" alt="Bottled Water 350ml Cap">
+                        </div>
+                        <div class="product-info">
+                            <span class="product-name">Bottled Water 350ml Cap</span>
+                            <span class="product-price">₱2.00</span>
+                        </div>
+                    </div>
+                    <div class="product-card" data-name="Bottled Water 500ml Cap" data-price="2.00">
+                        <div class="image-placeholder">
+                            <img src="images/bottle_cap.png" alt="Bottled Water 500ml Cap">
+                        </div>
+                        <div class="product-info">
+                            <span class="product-name">Bottled Water 500ml Cap</span>
+                            <span class="product-price">₱2.00</span>
+                        </div>
+                    </div>
+                    <div class="product-card" data-name="Bottled Water 1L Cap" data-price="2.00">
+                        <div class="image-placeholder">
+                            <img src="images/bottle_cap.png" alt="Bottled Water 1L Cap">
+                        </div>
+                        <div class="product-info">
+                            <span class="product-name">Bottled Water 1L Cap</span>
+                            <span class="product-price">₱2.00</span>
+                        </div>
+                    </div>
+                </div>
+
+                <h2 class="section-title-blue" style="margin-top: 32px;">PACKAGING CONSUMABLES</h2>
+                <div class="product-grid">
+                    <div class="product-card" data-name="Seal" data-price="1.00">
+                        <div class="image-placeholder">
+                            <img src="images/seal.png" alt="Seal">
+                        </div>
+                        <div class="product-info">
+                            <span class="product-name">Seal</span>
+                            <span class="product-price">₱1.00</span>
+                        </div>
+                    </div>
+                    <div class="product-card" data-name="Sticker" data-price="2.00">
+                        <div class="image-placeholder">
+                            <img src="images/sticker.png" alt="Sticker">
+                        </div>
+                        <div class="product-info">
+                            <span class="product-name">Sticker</span>
+                            <span class="product-price">₱2.00</span>
+                        </div>
+                    </div>
+                    <div class="product-card" data-name="Gallon Plastic Cover" data-price="3.00">
+                        <div class="image-placeholder">
+                            <img src="images/gallon_plastic_cover.png" alt="Gallon Plastic Cover">
+                        </div>
+                        <div class="product-info">
+                            <span class="product-name">Gallon Plastic Cover</span>
+                            <span class="product-price">₱3.00</span>
+                        </div>
+                    </div>
+                </div>
+            </main>
             <aside class="ticket-sidebar">
                 <div class="ticket-card">
                     <h2 class="ticket-title">Current Basket Content</h2>
+                    <div id="basket-txn-id" style="font-size: 13px; font-weight: bold; color: #1e3a8a; margin-top: -6px; margin-bottom: 12px; background-color: #eff6ff; padding: 6px 12px; border-radius: 6px; display: none;">Transaction ID:</div>
                     <div id="ticket-items" class="ticket-items-list">
                         <div class="empty-ticket-message">No items added yet.</div>
                     </div>
@@ -91,68 +187,99 @@
                     </div>
                 </div>
             </aside>
-
+        </div>
+    </div>
+    
     <div id="product-modal" class="modal-overlay">
-        <div class="modal-container">
-            <h2>Order Information</h2>
-            
-            <div class="modal-field">
-                <label for="customer-name">CUSTOMER NAME: <span style="color: #ef4444;">*</span></label>
-                <input type="text" id="customer-name" placeholder="Enter customer name" required>
-            </div>
+    <div class="modal-container">
+        <h2>Order Information</h2>
 
-            <div class="modal-field">
-                <label>QUANTITY:</label>
-                <div class="quantity-controls">
-                    <button id="qty-minus">-</button>
-                    <input type="number" id="modal-qty" value="1" min="1" readonly>
-                    <button id="qty-plus">+</button>
-                </div>
-            </div>
-
-            <div class="modal-field-inline">
-                <span class="field-label">PRICE:</span>
-                <span id="modal-product-price" class="field-value">₱0.00</span>
-            </div>
-
-            <div class="modal-field-inline total-highlight">
-                <span class="field-label">SUBTOTAL:</span>
-                <span id="modal-product-subtotal" class="field-value">₱0.00</span>
-            </div>
-
-            <div class="modal-actions">
-                <button id="add-to-basket-btn" class="btn-success">ADD TO BASKET</button>
-                <button id="cancel-modal-btn" class="btn-light">CANCEL</button>
+        <div class="modal-field">
+            <label>QUANTITY:</label>
+            <div class="quantity-controls">
+                <button id="qty-minus">-</button>
+                <input type="number" id="modal-qty" value="1" min="1" readonly>
+                <button id="qty-plus">+</button>
             </div>
         </div>
+
+        <div class="modal-field" id="gallon-type-field" style="display: none; margin-bottom: 15px;">
+            <label>TRANSACTION TYPE:</label>
+            <div style="display: flex; gap: 12px; margin-top: 8px;">
+        <button type="button" id="btn-type-refill" class="btn-type-toggle active" style="flex: 1; padding: 12px; border: 2px solid #1e3a8a; background-color: #1e3a8a; color: #ffffff; font-weight: 600; border-radius: 8px; cursor: pointer;">Refill Only (₱25.00)</button>
+        <button type="button" id="btn-type-buy" class="btn-type-toggle" style="flex: 1; padding: 12px; border: 2px solid #cbd5e1; background-color: #ffffff; color: #334155; font-weight: 600; border-radius: 8px; cursor: pointer;">Buy New Gallon (₱200.00)</button>
     </div>
+</div>
 
-    <div id="checkout-modal" class="modal-overlay">
-        <div class="modal-container">
-            <h2>Transact Settlement</h2>
-            
-            <div class="modal-field-inline">
-                <span class="field-label">TOTAL:</span>
-                <span id="checkout-total-payable" style="font-weight: 700; font-size: 18px; color: #1e3a8a;">₱0.00</span>
-            </div>
+        <div class="modal-field-inline">
+            <span class="field-label">PRICE:</span>
+            <span id="modal-product-price" class="field-value">₱0.00</span>
+        </div>
 
-            <div class="modal-field">
-                <label for="amount-tendered">AMOUNT GIVEN: <span style="color: #ef4444;">*</span></label>
-                <input type="number" id="amount-tendered" placeholder="Enter the amount given by the customer" min="0" step="0.01">
-            </div>
+        <div class="modal-field-inline total-highlight">
+            <span class="field-label">SUBTOTAL:</span>
+            <span id="modal-product-subtotal" class="field-value">₱0.00</span>
+        </div>
 
-            <div class="modal-field-inline total-highlight" style="margin-top: 15px;">
-                <span class="field-label">CHANGE:</span>
-                <span id="checkout-change" style="font-weight: 700; font-size: 20px; color: #059669;">₱0.00</span>
-            </div>
-
-            <div class="modal-actions">
-                <button id="confirm-transact-btn" class="btn-success">CONFIRM</button>
-                <button id="cancel-checkout-btn" class="btn-light">CANCEL</button>
-            </div>
+        <div class="modal-actions">
+            <button id="add-to-basket-btn" class="btn-success">ADD TO BASKET</button>
+            <button id="cancel-modal-btn" class="btn-light">CANCEL</button>
         </div>
     </div>
+</div>
 
+<div id="checkout-modal" class="modal-overlay">
+    <div class="modal-container">
+        <h2>Transact Settlement</h2>
+        
+        <div class="modal-field-inline">
+            <span class="field-label">TOTAL:</span>
+            <span id="checkout-total-payable" style="font-weight: 700; font-size: 18px; color: #1e3a8a;">₱0.00</span>
+        </div>
+
+        <div class="modal-field">
+            <label for="amount-tendered">AMOUNT GIVEN: <span style="color: #ef4444;">*</span></label>
+            <input type="number" id="amount-tendered" placeholder="Enter the amount given by the customer" min="0" step="0.01">
+        </div>
+
+        <div class="modal-field-inline total-highlight" style="margin-top: 15px;">
+            <span class="field-label">CHANGE:</span>
+            <span id="checkout-change" style="font-weight: 700; font-size: 20px; color: #059669;">₱0.00</span>
+        </div>
+
+        <div class="modal-actions">
+            <button id="confirm-transact-btn" class="btn-success">CONFIRM</button>
+            <button id="cancel-checkout-btn" class="btn-light">CANCEL</button>
+        </div>
+    </div>
+</div>
+<div id="receipt-print-area" style="display: none;">
+    <div style="font-family: 'Courier New', Courier, monospace; width: 300px; margin: 0 auto; padding: 20px; color: #000000;">
+        <h2 style="text-align: center; margin: 0 0 5px 0; font-size: 18px; font-weight: 700;">RMV WATER REFILLING STATION</h2>
+        <p style="text-align: center; margin: 0 0 15px 0; font-size: 12px;">Official Transaction Receipt</p>
+        <div style="border-top: 1px dashed #000000; margin-bottom: 10px;"></div>
+        <p style="font-size: 12px; margin: 5px 0;" id="receipt-date-time"></p>
+        <p style="font-size: 12px; margin: 5px 0; font-weight: bold;" id="receipt-txn-id"></p>
+        <p style="font-size: 12px; margin: 5px 0;" id="receipt-date-time"></p>
+        <div style="border-top: 1px dashed #000000; margin: 10px 0;"></div>
+        <div id="receipt-items-list" style="font-size: 12px;"></div>
+        <div style="border-top: 1px dashed #000000; margin: 10px 0;"></div>
+        <div style="display: flex; justify-content: space-between; font-size: 14px; font-weight: bold; margin: 5px 0;">
+            <span>TOTAL:</span>
+            <span id="receipt-total">₱0.00</span>
+        </div>
+        <div style="display: flex; justify-content: space-between; font-size: 12px; margin: 5px 0;">
+            <span>AMOUNT GIVEN:</span>
+            <span id="receipt-tendered">₱0.00</span>
+        </div>
+        <div style="display: flex; justify-content: space-between; font-size: 12px; margin: 5px 0;">
+            <span>CHANGE:</span>
+            <span id="receipt-change">₱0.00</span>
+        </div>
+        <div style="border-top: 1px dashed #000000; margin: 15px 0 10px 0;"></div>
+        <p style="text-align: center; font-size: 12px; margin: 0; font-weight: bold;">Thank you for buying, Come again!</p>
+    </div>
+</div>
     <script src="js/pos_script.js"></script>
-</body>
+</body>                                           
 </html>

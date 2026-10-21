@@ -21,27 +21,43 @@
                 <img src="images/water_logo.png" alt="RMV Logo" class="station-logo">
                 <h1 class="system-title">RMV Water Refilling Station - Sales Summary</h1>
             </div>
+            <nav class="sidebar-menu">                                                                 
+            <span class="menu-label">MENU</span>                                                       
+                                                                                                       
+            <a href="point_of_sales.html" class="menu-btn">Point of Sale (POS)</a>                     
+            <a href="inventory_management_system.html" class="menu-btn">Inventory Management</a>
+            <a href="view_sales_summary.html" class="menu-btn active">Sales Summary</a>                       
+            <a href="index.html" class="menu-btn exit-btn">Exit</a>                                    
+            </nav>                                                                                     
         </header>
 
-        <nav class="sales-filter-navigation">
-            <button class="btn-filter active" data-target="daily-summary">DAILY</button>
-            <button class="btn-filter" data-target="weekly-summary">WEEKLY</button>
-            <button class="btn-filter" data-target="monthly-summary">MONTHLY</button>
-            <button class="btn-filter" data-target="yearly-summary">YEARLY</button>
-        </nav>
+<div class="pos-content">
 
-        <main class="pos-content">
-            <div id="daily-summary" class="sales-view-panel active">
-                <h2 class="section-title-blue">DAILY SALES SUMMARY</h2>
+            <div class="sales-filter-navigation" style="display: flex; align-items: flex-end; justify-content: center; gap: 16px; margin-bottom: 24px; background-color: #ffffff; padding: 20px; border-radius: 12px; border: 1px solid #e2e8f0; width: 100%; max-width: 1000px; margin-left: auto; margin-right: auto;">
+                <div style="display: flex; flex-direction: column; gap: 6px; flex: 1;">
+                    <label for="start-date" style="font-size: 12px; font-weight: 700; color: #475569; text-transform: uppercase; letter-spacing: 0.5px;">Start Date</label>
+                    <input type="date" id="start-date" style="width: 100%; padding: 10px 14px; border: 1px solid #cbd5e1; border-radius: 6px; font-size: 14px; font-family: 'Inter', sans-serif; color: #1e293b;">
+                </div>
+                <div style="display: flex; flex-direction: column; gap: 6px; flex: 1;">
+                    <label for="end-date" style="font-size: 12px; font-weight: 700; color: #475569; text-transform: uppercase; letter-spacing: 0.5px;">End Date</label>
+                    <input type="date" id="end-date" style="width: 100%; padding: 10px 14px; border: 1px solid #cbd5e1; border-radius: 6px; font-size: 14px; font-family: 'Inter', sans-serif; color: #1e293b;">
+                </div>
+                <button id="btn-filter-date" class="btn-filter" style="flex: 0 0 auto; background-color: #1d4ed8; color: #ffffff; border: none; padding: 11px 24px; border-radius: 6px; font-weight: 600; font-size: 14px; cursor: pointer; transition: background-color 0.15s ease;">Filter Report</button>
+            </div>
+
+            <div class="sales-view-panel active">
+                <h2 class="section-title-blue">Filtered Sales Report</h2>
+                
                 <div class="sales-report-card">
                     <ul class="sales-list-group">
                         <li class="sales-list-header">
-                            <span class="col-img-header"></span>
-                            <span>Product</span>
+                            <span class="col-img-header">Product</span>
+                            <span>Name</span>
                             <span>Price</span>
                             <span>Quantity</span>
-                            <span>Total Sales</span>
+                            <span style="text-align: right;">Total Sales</span>
                         </li>
+
                         <li>
                             <span class="sales-item-thumb"><img src="images/slim_gallon.png" alt="Slim Gallon"></span>
                             <span>Slim Gallon</span>
@@ -77,165 +93,83 @@
                             <span>0</span>
                             <span>₱0.00</span>
                         </li>
-                    </ul>
-                    <div class="summary-total-footer">Grand Total: <span>₱0.00</span></div>
-                </div>
-            </div>
 
-            <div id="weekly-summary" class="sales-view-panel">
-                <h2 class="section-title-blue">WEEKLY SALES SUMMARY</h2>
-                <div class="sales-report-card">
-                    <ul class="sales-list-group">
-                        <li class="sales-list-header">
-                            <span class="col-img-header"></span>
-                            <span>Product</span>
-                            <span>Price</span>
-                            <span>Quantity</span>
-                            <span>Total Sales</span>
-                        </li>
                         <li>
-                            <span class="sales-item-thumb"><img src="images/slim_gallon.png" alt="Slim Gallon"></span>
-                            <span>Slim Gallon</span>
-                            <span>₱25.00</span>
-                            <span>0</span>
-                            <span>₱0.00</span>
-                        </li>
-                        <li>
-                            <span class="sales-item-thumb"><img src="images/round_gallon.png" alt="Round Gallon"></span>
-                            <span>Round Gallon</span>
-                            <span>₱25.00</span>
-                            <span>0</span>
-                            <span>₱0.00</span>
-                        </li>
-                        <li>
-                            <span class="sales-item-thumb"><img src="images/bottled_water_1L.png" alt="1L Bottled Water"></span>
-                            <span>1L Bottled Water</span>
-                            <span>₱10.00</span>
-                            <span>0</span>
-                            <span>₱0.00</span>
-                        </li>
-                        <li>
-                            <span class="sales-item-thumb"><img src="images/bottled_water_500ML.png" alt="500ml Bottled Water"></span>
-                            <span>500ml Bottled Water</span>
-                            <span>₱6.00</span>
-                            <span>0</span>
-                            <span>₱0.00</span>
-                        </li>
-                        <li>
-                            <span class="sales-item-thumb"><img src="images/bottled_water_350ML.png" alt="350ml Bottled Water"></span>
-                            <span>350ml Bottled Water</span>
+                            <span class="sales-item-thumb"><img src="images/small_cap.png" alt="Slim Gallon Small Cap"></span>
+                            <span>Slim Gallon Small Cap</span>
                             <span>₱5.00</span>
                             <span>0</span>
                             <span>₱0.00</span>
                         </li>
-                    </ul>
-                    <div class="summary-total-footer">Grand Total: <span>₱0.00</span></div>
-                </div>
-            </div>
-
-            <div id="monthly-summary" class="sales-view-panel">
-                <h2 class="section-title-blue">MONTHLY SALES SUMMARY</h2>
-                <div class="sales-report-card">
-                    <ul class="sales-list-group">
-                        <li class="sales-list-header">
-                            <span class="col-img-header"></span>
-                            <span>Product</span>
-                            <span>Price</span>
-                            <span>Quantity</span>
-                            <span>Total Sales</span>
-                        </li>
                         <li>
-                            <span class="sales-item-thumb"><img src="images/slim_gallon.png" alt="Slim Gallon"></span>
-                            <span>Slim Gallon</span>
-                            <span>₱25.00</span>
-                            <span>0</span>
-                            <span>₱0.00</span>
-                        </li>
-                        <li>
-                            <span class="sales-item-thumb"><img src="images/round_gallon.png" alt="Round Gallon"></span>
-                            <span>Round Gallon</span>
-                            <span>₱25.00</span>
-                            <span>0</span>
-                            <span>₱0.00</span>
-                        </li>
-                        <li>
-                            <span class="sales-item-thumb"><img src="images/bottled_water_1L.png" alt="1L Bottled Water"></span>
-                            <span>1L Bottled Water</span>
-                            <span>₱10.00</span>
-                            <span>0</span>
-                            <span>₱0.00</span>
-                        </li>
-                        <li>
-                            <span class="sales-item-thumb"><img src="images/bottled_water_500ML.png" alt="500ml Bottled Water"></span>
-                            <span>500ml Bottled Water</span>
-                            <span>₱6.00</span>
-                            <span>0</span>
-                            <span>₱0.00</span>
-                        </li>
-                        <li>
-                            <span class="sales-item-thumb"><img src="images/bottled_water_350ML.png" alt="350ml Bottled Water"></span>
-                            <span>350ml Bottled Water</span>
+                            <span class="sales-item-thumb"><img src="images/big_cap.png" alt="Slim Gallon Big Cap"></span>
+                            <span>Slim Gallon Big Cap</span>
                             <span>₱5.00</span>
                             <span>0</span>
                             <span>₱0.00</span>
                         </li>
-                    </ul>
-                    <div class="summary-total-footer">Grand Total: <span>₱0.00</span></div>
-                </div>
-            </div>
-
-            <div id="yearly-summary" class="sales-view-panel">
-                <h2 class="section-title-blue">YEARLY SALES SUMMARY</h2>
-                <div class="sales-report-card">
-                    <ul class="sales-list-group">
-                        <li class="sales-list-header">
-                            <span class="col-img-header"></span>
-                            <span>Product</span>
-                            <span>Price</span>
-                            <span>Quantity</span>
-                            <span>Total Sales</span>
-                        </li>
                         <li>
-                            <span class="sales-item-thumb"><img src="images/slim_gallon.png" alt="Slim Gallon"></span>
-                            <span>Slim Gallon</span>
-                            <span>₱25.00</span>
-                            <span>0</span>
-                            <span>₱0.00</span>
-                        </li>
-                        <li>
-                            <span class="sales-item-thumb"><img src="images/round_gallon.png" alt="Round Gallon"></span>
-                            <span>Round Gallon</span>
-                            <span>₱25.00</span>
-                            <span>0</span>
-                            <span>₱0.00</span>
-                        </li>
-                        <li>
-                            <span class="sales-item-thumb"><img src="images/bottled_water_1L.png" alt="1L Bottled Water"></span>
-                            <span>1L Bottled Water</span>
-                            <span>₱10.00</span>
-                            <span>0</span>
-                            <span>₱0.00</span>
-                        </li>
-                        <li>
-                            <span class="sales-item-thumb"><img src="images/bottled_water_500ML.png" alt="500ml Bottled Water"></span>
-                            <span>500ml Bottled Water</span>
-                            <span>₱6.00</span>
-                            <span>0</span>
-                            <span>₱0.00</span>
-                        </li>
-                        <li>
-                            <span class="sales-item-thumb"><img src="images/bottled_water_350ML.png" alt="350ml Bottled Water"></span>
-                            <span>350ml Bottled Water</span>
+                            <span class="sales-item-thumb"><img src="images/bottle_cap.png" alt="Round Gallon Cap"></span>
+                            <span>Round Gallon Cap</span>
                             <span>₱5.00</span>
                             <span>0</span>
                             <span>₱0.00</span>
                         </li>
+                        <li>
+                            <span class="sales-item-thumb"><img src="images/bottle_cap.png" alt="Bottled Water 350ml Cap"></span>
+                            <span>Bottled Water 350ml Cap</span>
+                            <span>₱2.00</span>
+                            <span>0</span>
+                            <span>₱0.00</span>
+                        </li>
+                        <li>
+                            <span class="sales-item-thumb"><img src="images/bottle_cap.png" alt="Bottled Water 500ml Cap"></span>
+                            <span>Bottled Water 500ml Cap</span>
+                            <span>₱2.00</span>
+                            <span>0</span>
+                            <span>₱0.00</span>
+                        </li>
+                        <li>
+                            <span class="sales-item-thumb"><img src="images/bottle_cap.png" alt="Bottled Water 1L Cap"></span>
+                            <span>Bottled Water 1L Cap</span>
+                            <span>₱2.00</span>
+                            <span>0</span>
+                            <span>₱0.00</span>
+                        </li>
+
+                        <li>
+                            <span class="sales-item-thumb"><img src="images/seal.png" alt="Seal"></span>
+                            <span>Seal</span>
+                            <span>₱1.00</span>
+                            <span>0</span>
+                            <span>₱0.00</span>
+                        </li>
+                        <li>
+                            <span class="sales-item-thumb"><img src="images/sticker.png" alt="Sticker"></span>
+                            <span>Sticker</span>
+                            <span>₱2.00</span>
+                            <span>0</span>
+                            <span>₱0.00</span>
+                        </li>
+                        <li>
+                            <span class="sales-item-thumb"><img src="images/gallon_plastic_cover.png" alt="Gallon Plastic Cover"></span>
+                            <span>Gallon Plastic Cover</span>
+                            <span>₱3.00</span>
+                            <span>0</span>
+                            <span>₱0.00</span>
+                        </li>
                     </ul>
-                    <div class="summary-total-footer">Grand Total: <span>₱0.00</span></div>
+
+                    <div class="summary-total-footer">
+                        <span>Grand Total:</span>
+                        <span>₱0.00</span>
+                    </div>
                 </div>
             </div>
-        </main>
+
+        </div>
+
     </div>
-    <script src="js/view_sales_summary.js"></script>
+<script src="js/view_sales_summary.js"></script>
 </body>
 </html>

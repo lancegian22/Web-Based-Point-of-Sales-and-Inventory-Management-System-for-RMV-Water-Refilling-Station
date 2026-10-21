@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="css/index.css">
     <link rel="preconnect" href="https://googleapis.com">
     <link rel="preconnect" href="https://gstatic.com" crossorigin>
-    <link href="https://googleapis.com" rel="stylesheet">
+    <link href="https://googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
     <div class="home-container">
@@ -18,18 +18,36 @@
 
         <main class="home-menu-stack">
             <button class="btn-home-menu" id="POSButton">
-                <img src="images/cart_icon.png" alt="" class="home-icon-img">
-                <span class="home-btn-text">POINT OF SALES</span>
+                <div class="home-icon-circle">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
+                        <line x1="2" y1="10" x2="22" y2="10"></line>
+                        <polygon points="6 21 10 17 14 17 18 21 6 21"></polygon>
+                    </svg>
+                </div>
+                <span class="home-btn-text">Point of Sales</span>
             </button>
 
             <button class="btn-home-menu" id="InventoryButton">
-                <img src="images/box_icon.png" alt="" class="home-icon-img">
-                <span class="home-btn-text">INVENTORY MANAGEMENT SYSTEM</span>
+                <div class="home-icon-circle">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path>
+                        <polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline>
+                        <line x1="12" y1="22.08" x2="12" y2="12"></line>
+                    </svg>
+                </div>
+                <span class="home-btn-text">Inventory Management System</span>
             </button>
 
             <button class="btn-home-menu" id="SalesButton">
-                <img src="images/view_icon.png" alt="" class="home-icon-img">
-                <span class="home-btn-text">VIEW SALES SUMMARY</span>
+                <div class="home-icon-circle">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <line x1="18" y1="20" x2="18" y2="10"></line>
+                        <line x1="12" y1="20" x2="12" y2="4"></line>
+                        <line x1="6" y1="20" x2="6" y2="14"></line>
+                    </svg>
+                </div>
+                <span class="home-btn-text">View Sales Summary</span>
             </button>
         </main>
     </div>
